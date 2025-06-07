@@ -1,8 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const projects = [
     {
@@ -20,14 +21,35 @@ const ProjectsSection = () => {
       title: "SaaS Application",
       description: "Currently building a comprehensive SaaS application with modern architecture.",
       features: [
-        "Monitoring & Analytics Infrastructure",
-        "Design System & UI Consistency",
-        "API Gateway & Documentation"
+        "Payment System Architecture with secure transactions",
+        "Monitoring & Analytics Infrastructure for insights",
+        "Design System & UI Components for consistency"
       ],
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
+      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker", "Stripe", "Redis"],
       image: "/lovable-uploads/46d41fe7-f551-44a6-969d-eee65aefb6a5.png"
+    },
+    {
+      title: "E-Commerce Platform",
+      description: "Modern e-commerce solution with advanced features and seamless user experience.",
+      features: [
+        "Real-time inventory management and tracking",
+        "Advanced search and filtering capabilities",
+        "Integrated payment gateway and order processing"
+      ],
+      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS", "Zustand", "Vercel"],
+      image: "/lovable-uploads/1a20e245-2089-4b39-8299-ddd699286e32.png"
     }
   ];
+
+  const handleProjectChange = (index: number) => {
+    if (index !== currentProject) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentProject(index);
+        setIsTransitioning(false);
+      }, 150);
+    }
+  };
 
   return (
     <section id="work" className="py-20 px-6">
@@ -43,7 +65,7 @@ const ProjectsSection = () => {
                   className={`cursor-pointer transition-all duration-300 ${
                     currentProject === index ? 'opacity-100' : 'opacity-50'
                   }`}
-                  onMouseEnter={() => setCurrentProject(index)}
+                  onMouseEnter={() => handleProjectChange(index)}
                 >
                   <div className="glass-effect rounded-2xl overflow-hidden group">
                     <div className="relative overflow-hidden">
@@ -60,8 +82,10 @@ const ProjectsSection = () => {
             </div>
             
             <div className="sticky top-24">
-              <div className="animate-fade-in">
+              <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'}`}>
                 <h3 className="text-3xl font-bold mb-4">{projects[currentProject].title}</h3>
+                
+                <p className="text-muted-foreground mb-6">{projects[currentProject].description}</p>
                 
                 <div className="space-y-3 mb-6">
                   {projects[currentProject].features.map((feature, index) => (

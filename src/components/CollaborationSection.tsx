@@ -10,27 +10,30 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const skills1 = [
+    'INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE', 'SEARCH OPTIMIZED', 'INTERACTIVE', 'SECURE', 'RELIABLE'
+  ];
+  
+  const skills2 = [
     'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
     'Contentful', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB', 'Prisma'
   ];
   
-  const skills2 = [
+  const skills3 = [
     'Zustand', 'Zod', 'pnpm', 'Bun', 'Git', 'GitHub', 'Vercel',
     'AWS', 'Docker', 'Expo', 'Clerk', 'Linux'
   ];
-  
-  const skills3 = [
-    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
-    'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB', 'Prisma', 'Git'
-  ];
 
-  const SkillStripe = ({ skills, direction = 'right' }: { skills: string[], direction?: 'left' | 'right' }) => (
+  const SkillStripe = ({ skills, direction = 'right', isTopStripe = false }: { skills: string[], direction?: 'left' | 'right', isTopStripe?: boolean }) => (
     <div className="overflow-hidden py-4">
-      <div className={`flex space-x-8 ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
-        {[...skills, ...skills, ...skills].map((skill, index) => (
+      <div className={`flex space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
+        {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
           <div 
             key={index}
-            className="glass-effect px-6 py-3 rounded-full whitespace-nowrap text-sm font-medium"
+            className={`px-6 py-3 rounded-full text-sm font-medium ${
+              isTopStripe 
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' 
+                : 'glass-effect'
+            }`}
           >
             {skill}
           </div>
@@ -102,7 +105,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               <p className="text-sm text-muted-foreground mb-4">PASSIONATE ABOUT CUTTING-EDGE TECHNOLOGIES</p>
               <h3 className="text-3xl font-bold">Tech Stack</h3>
             </div>
-            <SkillStripe skills={skills1} direction="right" />
+            <SkillStripe skills={skills1} direction="right" isTopStripe={true} />
             <SkillStripe skills={skills2} direction="left" />
             <SkillStripe skills={skills3} direction="right" />
           </div>

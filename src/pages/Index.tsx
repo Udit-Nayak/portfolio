@@ -10,16 +10,18 @@ import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import BookCallModal from '@/components/BookCallModal';
+import BookCallCard from '@/components/BookCallCard';
 
 const Index = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
+  const [isBookCallCardOpen, setIsBookCallCardOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation onBookCall={() => setIsBookCallOpen(true)} />
       
       <main>
-        <HeroSection />
+        <HeroSection onBookCall={() => setIsBookCallCardOpen(true)} />
         <CollaborationSection onBookCall={() => setIsBookCallOpen(true)} />
         <CurrentlyWorkingSection />
         <ProjectsSection />
@@ -33,6 +35,15 @@ const Index = () => {
       <BookCallModal 
         isOpen={isBookCallOpen}
         onClose={() => setIsBookCallOpen(false)}
+      />
+      
+      <BookCallCard
+        isOpen={isBookCallCardOpen}
+        onClose={() => setIsBookCallCardOpen(false)}
+        onBookCall={() => {
+          setIsBookCallCardOpen(false);
+          setIsBookCallOpen(true);
+        }}
       />
     </div>
   );
