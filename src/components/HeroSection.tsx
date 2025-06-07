@@ -31,16 +31,6 @@ const HeroSection = () => {
           Let's Connect
         </Button>
       </div>
-      
-      <div className="mt-16 w-full max-w-4xl mx-auto">
-        <div className="glass-effect rounded-2xl p-8 animate-float">
-          <img 
-            src="/lovable-uploads/5de1e776-404a-419e-9f3e-ce62eae1a81f.png" 
-            alt="Portfolio UI Preview" 
-            className="w-full h-auto rounded-lg"
-          />
-        </div>
-      </div>
     </section>
   );
 };

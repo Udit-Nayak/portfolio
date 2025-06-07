@@ -9,11 +9,7 @@ const SecretSauceSection = () => {
   return (
     <section className="py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
-        <img 
-          src="/lovable-uploads/27b6c4fe-f1b6-450b-9acf-ff7a2658a8ab.png" 
-          alt="Background decoration"
-          className="opacity-20 animate-rotate-slow"
-        />
+        <div className="w-96 h-96 border-2 border-purple-600/20 rounded-full animate-rotate-slow"></div>
       </div>
       
       <div className="container mx-auto max-w-6xl relative z-10">

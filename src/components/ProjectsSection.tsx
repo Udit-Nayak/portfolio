@@ -1,10 +1,8 @@
 
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
-  const [showRecentWorks, setShowRecentWorks] = useState(false);
 
   const projects = [
     {
@@ -34,32 +32,6 @@ const ProjectsSection = () => {
   return (
     <section id="work" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div 
-          className="relative mb-16 glass-effect rounded-2xl p-12 overflow-hidden group cursor-pointer"
-          onMouseEnter={() => setShowRecentWorks(true)}
-          onMouseLeave={() => setShowRecentWorks(false)}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 animate-rotate-slow"></div>
-          <div className="relative z-10">
-            <h2 className="text-3xl font-bold text-center mb-4">Currently Working On</h2>
-            <p className="text-muted-foreground text-center">Building innovative solutions</p>
-          </div>
-          
-          {showRecentWorks && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-20">
-              <Button 
-                onClick={() => {
-                  const element = document.getElementById('curated-works');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 animate-scale-in"
-              >
-                Recent Works
-              </Button>
-            </div>
-          )}
-        </div>
-
         <div id="curated-works" className="mb-16">
           <h2 className="text-4xl font-bold text-center mb-16">Curated Works</h2>
           
