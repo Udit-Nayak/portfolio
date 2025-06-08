@@ -82,7 +82,9 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
             </div>
 
             {/* Email Card */}
-            <div className="glass-effect rounded-2xl p-24 relative overflow-hidden">
+            <div 
+              className="glass-effect rounded-2xl p-24 relative overflow-hidden group cursor-pointer transition-all duration-300 group-hover:glow-effect"
+            >
               <div className="flex items-center justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">AB</span>
@@ -92,7 +94,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8">
                 Let's work together on your next project
               </h2>
-              
+               
               <div className="flex items-center justify-center space-x-4 bg-black/30 rounded-xl p-4">
                 <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
                   <span className="text-white text-xs">📧</span>

@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null); // Important
 
   const projects = [
     {
@@ -12,19 +18,9 @@ const ProjectsSection = () => {
         "Simplified idea submission with a clean, intuitive design",
         "Enhanced browsing with seamless performance optimization"
       ],
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity cms", "Auth.js", "markdown", "GROQ", "Sentry"],
-      image: "/lovable-uploads/1a20e245-2089-4b39-8299-ddd699286e32.png"
-    },
-    {
-      title: "SaaS Application",
-      description: "Currently building a comprehensive SaaS application with modern architecture.",
-      features: [
-        "Payment System Architecture with secure transactions",
-        "Monitoring & Analytics Infrastructure for insights",
-        "Design System & UI Components for consistency"
-      ],
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker", "Stripe", "Redis"],
-      image: "/lovable-uploads/46d41fe7-f551-44a6-969d-eee65aefb6a5.png"
+      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity CMS", "Auth.js"],
+      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
     },
     {
       title: "E-Commerce Platform",
@@ -34,85 +30,123 @@ const ProjectsSection = () => {
         "Advanced search and filtering capabilities",
         "Integrated payment gateway and order processing"
       ],
-      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS", "Zustand", "Vercel"],
-      image: "/lovable-uploads/1a20e245-2089-4b39-8299-ddd699286e32.png"
+      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
+      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
+    },
+    {
+      title: "AI-Powered Analytics Dashboard",
+      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
+      features: [
+        "Machine learning algorithms for predictive analytics",
+        "Interactive data visualization with D3.js",
+        "Real-time data processing and alerts"
+      ],
+      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
+      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
     }
   ];
 
   const handleProjectChange = (index: number) => {
-    setCurrentProject(index);
+    if (index !== currentProject && !isAnimating) {
+      setIsAnimating(true);
+      setCurrentProject(index);
+      setTimeout(() => setIsAnimating(false), 150);
+    }
   };
 
+  // Section visibility only for animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Image scroll observer scoped to Projects Section only
+  useEffect(() => {
+    if (!scrollContainerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find(entry => entry.isIntersecting);
+        if (visible) {
+          const index = parseInt(visible.target.getAttribute("data-index") || "0", 10);
+          handleProjectChange(index);
+        }
+      },
+      {
+        root: scrollContainerRef.current, // Only inside project scroll container
+        threshold: 0.6
+      }
+    );
+
+    projectRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [currentProject]);
+
   return (
-    <section id="work" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="w-full max-w-7xl">
-        <h2 className="text-4xl font-bold text-center mb-16">Curated Works</h2>
+    <section ref={sectionRef} className="min-h-screen relative">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            Featured Projects
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            A collection of carefully crafted digital experiences that showcase innovation and technical excellence.
+          </p>
+        </div>
 
-        <div className="space-y-32">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="grid lg:grid-cols-2 gap-24 items-center"
-              onMouseEnter={() => handleProjectChange(index)}
-            >
-              {/* Image Box */}
-              <div
-                className={`cursor-pointer transition-all duration-300 ${currentProject === index ? 'opacity-100' : 'opacity-50'}`}
-              >
-                <div className="relative rounded-2xl px-10 py-20 border-4  bg-white/10 overflow-hidden">
-                  {/* Background blur image */}
-                  <div className="absolute inset-0 z-0">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-5"
-                    />
-                  </div>
-
-                  {/* Foreground full image */}
-                  <div className="relative z-10 flex justify-center">
-                    <div className="rounded-lg overflow-hidden group w-full max-w-full">
-                      <div className="relative overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-auto max-h-[42rem] object-contain transition-transform duration-300 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div className="relative lg:flex">
+          {/* Fixed Text Content */}
+          <div className="lg:w-1/2 lg:pr-6">
+            <div className="sticky top-32 glass-effect rounded-3xl p-8">
+              <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
+              <p className="text-lg text-gray-600 mb-8">{projects[currentProject].description}</p>
+              <div className="mb-8">
+                <h4 className="font-semibold mb-2">Key Features</h4>
+                <ul className="list-disc ml-6 space-y-2">
+                  {projects[currentProject].features.map((feat, idx) => (
+                    <li key={idx}>{feat}</li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Text Block */}
-              <div className="ml-10">
-                <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-
-                <p className="text-muted-foreground mb-6">{project.description}</p>
-
-                <div className="space-y-3 mb-6">
-                  {project.features.map((feature, featIndex) => (
-                    <div key={featIndex} className="flex items-start space-x-3">
-                      <span className="text-primary text-lg">+</span>
-                      <span className="text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="glass-effect px-4 py-2 rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {projects[currentProject].technologies.map((tech, i) => (
+                  <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Scrollable Images */}
+          <div ref={scrollContainerRef} className="lg:w-1/2 space-y-[50vh] overflow-y-auto max-h-[80vh] pr-2 custom-scroll">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                ref={(el) => (projectRefs.current[index] = el)}
+                data-index={index}
+                className="h-[70vh] flex items-center justify-center"
+              >
+                <div className="relative w-full max-w-xl">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${
+                      currentProject === index ? 'scale-100' : 'scale-95 opacity-70'
+                    }`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

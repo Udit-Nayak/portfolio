@@ -43,7 +43,7 @@ const AboutSection = () => {
           
           <div className="relative">
             <div 
-              className="glass-effect rounded-2xl overflow-hidden cursor-pointer transition-all duration-300"
+              className="glass-effect rounded-2xl p-12 overflow-hidden cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsImageHovered(true)}
               onMouseLeave={() => setIsImageHovered(false)}
             >

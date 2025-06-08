@@ -1,4 +1,3 @@
-
 const SecretSauceSection = () => {
   const skills = [
     'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
@@ -35,7 +34,7 @@ const SecretSauceSection = () => {
       </div>
       
       <div className="mt-20 bg-gradient-to-r from-purple-600 to-blue-600 transform -skew-y-3 py-8">
-        <div className="skew-y-3 overflow-hidden">
+        <div className="overflow-hidden">
           <div className="animate-slide-right">
             <p className="text-4xl font-bold text-white whitespace-nowrap">
               Passionate about cutting-edge technologies • Building the future • 
