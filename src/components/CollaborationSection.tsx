@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -26,7 +25,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   const SkillStripe = ({ skills, direction = 'right', isTopStripe = false }: { skills: string[], direction?: 'left' | 'right', isTopStripe?: boolean }) => (
     <div className="overflow-hidden py-4">
       <div className={`flex space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
-        {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
+        {[...skills, ...skills].map((skill, index) => (
           <div 
             key={index}
             className={`px-6 py-3 rounded-full text-sm font-medium ${

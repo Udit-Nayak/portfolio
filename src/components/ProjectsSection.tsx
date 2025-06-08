@@ -1,9 +1,7 @@
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const projects = [
     {
@@ -42,64 +40,70 @@ const ProjectsSection = () => {
   ];
 
   const handleProjectChange = (index: number) => {
-    if (index !== currentProject) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentProject(index);
-        setIsTransitioning(false);
-      }, 150);
-    }
+    setCurrentProject(index);
   };
 
   return (
-    <section id="work" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div id="curated-works" className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-16">Curated Works</h2>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
-              {projects.map((project, index) => (
-                <div 
-                  key={index}
-                  className={`cursor-pointer transition-all duration-300 ${
-                    currentProject === index ? 'opacity-100' : 'opacity-50'
-                  }`}
-                  onMouseEnter={() => handleProjectChange(index)}
-                >
-                  <div className="glass-effect rounded-2xl overflow-hidden group">
-                    <div className="relative overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <section id="work" className="min-h-screen flex items-center justify-center px-6 py-20">
+      <div className="w-full max-w-7xl">
+        <h2 className="text-4xl font-bold text-center mb-16">Curated Works</h2>
+
+        <div className="space-y-32">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="grid lg:grid-cols-2 gap-24 items-center"
+              onMouseEnter={() => handleProjectChange(index)}
+            >
+              {/* Image Box */}
+              <div
+                className={`cursor-pointer transition-all duration-300 ${currentProject === index ? 'opacity-100' : 'opacity-50'}`}
+              >
+                <div className="relative rounded-2xl px-10 py-20 border-4  bg-white/10 overflow-hidden">
+                  {/* Background blur image */}
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover opacity-5"
+                    />
+                  </div>
+
+                  {/* Foreground full image */}
+                  <div className="relative z-10 flex justify-center">
+                    <div className="rounded-lg overflow-hidden group w-full max-w-full">
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-auto max-h-[42rem] object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-            
-            <div className="sticky top-24">
-              <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'}`}>
-                <h3 className="text-3xl font-bold mb-4">{projects[currentProject].title}</h3>
-                
-                <p className="text-muted-foreground mb-6">{projects[currentProject].description}</p>
-                
+              </div>
+
+              {/* Text Block */}
+              <div className="ml-10">
+                <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
+
+                <p className="text-muted-foreground mb-6">{project.description}</p>
+
                 <div className="space-y-3 mb-6">
-                  {projects[currentProject].features.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-3">
+                  {project.features.map((feature, featIndex) => (
+                    <div key={featIndex} className="flex items-start space-x-3">
                       <span className="text-primary text-lg">+</span>
                       <span className="text-muted-foreground">{feature}</span>
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="flex flex-wrap gap-3">
-                  {projects[currentProject].technologies.map((tech, index) => (
-                    <span 
-                      key={index}
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
                       className="glass-effect px-4 py-2 rounded-full text-sm font-medium"
                     >
                       {tech}
@@ -108,7 +112,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

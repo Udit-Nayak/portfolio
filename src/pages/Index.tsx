@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import CollaborationSection from '@/components/CollaborationSection';
-import CurrentlyWorkingSection from '@/components/CurrentlyWorkingSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import SecretSauceSection from '@/components/SecretSauceSection';
 import AboutSection from '@/components/AboutSection';
@@ -23,7 +21,6 @@ const Index = () => {
       <main>
         <HeroSection onBookCall={() => setIsBookCallCardOpen(true)} />
         <CollaborationSection onBookCall={() => setIsBookCallOpen(true)} />
-        <CurrentlyWorkingSection />
         <ProjectsSection />
         <SecretSauceSection />
         <AboutSection />

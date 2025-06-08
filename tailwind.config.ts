@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,12 +63,12 @@ export default {
 			},
 			keyframes: {
 				'slide-right': {
-					'0%': { transform: 'translateX(-100%)' },
-					'100%': { transform: 'translateX(100%)' }
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(50%)' }
 				},
 				'slide-left': {
-					'0%': { transform: 'translateX(100%)' },
-					'100%': { transform: 'translateX(-100%)' }
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' }
 				},
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
