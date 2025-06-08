@@ -139,11 +139,11 @@ const ProjectsSection = () => {
 
         <div ref={containerRef} className="relative lg:flex">
           {/* Text Content */}
-          <div className="lg:w-1/2 lg:pr-6">
-            <div className="sticky top-32 glass-effect rounded-3xl p-8">
+          image.png          <div className="lg:w-1/2 lg:pr-6">
+            <div className="sticky top-24 glass-effect rounded-3xl p-8">
               <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
-              <p className="text-lg text-gray-600 mb-8">{projects[currentProject].description}</p>
-              <div className="mb-8">
+              <p className="text-lg text-gray-600 mb-6">{projects[currentProject].description}</p>
+              <div className="mb-6">
                 <h4 className="font-semibold mb-2">Key Features</h4>
                 <ul className="list-disc ml-6 space-y-2">
                   {projects[currentProject].features.map((feat, idx) => (
@@ -164,26 +164,30 @@ const ProjectsSection = () => {
           {/* Scrollable Images */}
           <div
             ref={scrollContainerRef}
-            className="lg:w-1/2 space-y-[90vh] overflow-y-auto max-h-[100vh] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="lg:w-1/2 h-screen sticky top-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-y snap-mandatory"
           >
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                ref={(el) => (projectRefs.current[index] = el)}
-                data-index={index}
-                className="h-[70vh] flex items-start justify-center"
-              >
-                <div className="relative w-full max-w-xl">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${
-                      currentProject === index ? 'scale-100' : 'scale-95 opacity-70'
-                    }`}
-                  />
+            <div className="py-8 space-y-[50vh]">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  ref={(el) => (projectRefs.current[index] = el)}
+                  data-index={index}
+                  className="h-[60vh] flex items-center justify-center snap-start snap-always"
+                >
+                  <div className="relative w-full max-w-xl mx-auto">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={`rounded-xl shadow-lg w-full h-[50vh] object-cover transition-all duration-500 ${
+                        currentProject === index 
+                          ? 'scale-100 opacity-100 transform-gpu' 
+                          : 'scale-95 opacity-70 transform-gpu'
+                      }`}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
