@@ -64,11 +64,11 @@ export default {
 			keyframes: {
 				'slide-right': {
 					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(50%)' }
+					'100%': { transform: 'translateX(-100%)' }
 				},
 				'slide-left': {
-					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(-50%)' }
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(0%)' }
 				},
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
