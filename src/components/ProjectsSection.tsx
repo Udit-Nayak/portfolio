@@ -7,7 +7,9 @@ const ProjectsSection = () => {
   const [isSectionVisible, setIsSectionVisible] = useState(false);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null); // Important
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const currentProjectRef = useRef(currentProject);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -45,18 +47,33 @@ const ProjectsSection = () => {
       technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
       image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
       links: { live: "#", github: "#" }
+    },
+    {
+      title: "Next Ventures",
+      description: "A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas.",
+      features: [
+        "Leveraged Partial Prerendering and After for faster loading",
+        "Simplified idea submission with a clean, intuitive design",
+        "Enhanced browsing with seamless performance optimization"
+      ],
+      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity CMS", "Auth.js"],
+      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
     }
   ];
 
+  useEffect(() => {
+    currentProjectRef.current = currentProject;
+  }, [currentProject]);
+
   const handleProjectChange = (index: number) => {
-    if (index !== currentProject && !isAnimating) {
+    if (index !== currentProjectRef.current) {
       setIsAnimating(true);
       setCurrentProject(index);
       setTimeout(() => setIsAnimating(false), 150);
     }
   };
 
-  // Section visibility only for animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -68,27 +85,45 @@ const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Image scroll observer scoped to Projects Section only
   useEffect(() => {
     if (!scrollContainerRef.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find(entry => entry.isIntersecting);
-        if (visible) {
-          const index = parseInt(visible.target.getAttribute("data-index") || "0", 10);
-          handleProjectChange(index);
+        let mostVisibleIndex = -1;
+        let maxRatio = 0;
+
+        entries.forEach((entry) => {
+          console.log(`Entry for index ${entry.target.getAttribute('data-index')}: isIntersecting=${entry.isIntersecting}, intersectionRatio=${entry.intersectionRatio}`);
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            mostVisibleIndex = parseInt(entry.target.getAttribute('data-index') || '0');
+            maxRatio = entry.intersectionRatio;
+          }
+        });
+
+        console.log('Most visible index calculated:', mostVisibleIndex, 'Current Project:', currentProjectRef.current);
+
+        if (mostVisibleIndex !== -1 && mostVisibleIndex !== currentProjectRef.current) {
+          handleProjectChange(mostVisibleIndex);
         }
       },
       {
-        root: scrollContainerRef.current, // Only inside project scroll container
-        threshold: 0.6
+        root: scrollContainerRef.current,
+        threshold: 0.5,
+        rootMargin: '0px'
       }
     );
 
-    projectRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, [currentProject]);
+    projectRefs.current.forEach((el) => {
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section ref={sectionRef} className="min-h-screen relative">
@@ -102,8 +137,8 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="relative lg:flex">
-          {/* Fixed Text Content */}
+        <div ref={containerRef} className="relative lg:flex">
+          {/* Text Content */}
           <div className="lg:w-1/2 lg:pr-6">
             <div className="sticky top-32 glass-effect rounded-3xl p-8">
               <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
@@ -127,13 +162,16 @@ const ProjectsSection = () => {
           </div>
 
           {/* Scrollable Images */}
-          <div ref={scrollContainerRef} className="lg:w-1/2 space-y-[50vh] overflow-y-auto max-h-[80vh] pr-2 custom-scroll">
+          <div
+            ref={scrollContainerRef}
+            className="lg:w-1/2 overflow-y-auto max-h-[100vh] pr-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
             {projects.map((project, index) => (
               <div
                 key={index}
                 ref={(el) => (projectRefs.current[index] = el)}
                 data-index={index}
-                className="h-[70vh] flex items-center justify-center"
+                className="h-[70vh] flex items-start justify-center"
               >
                 <div className="relative w-full max-w-xl">
                   <img
@@ -154,3 +192,4 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+
