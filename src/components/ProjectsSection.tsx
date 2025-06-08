@@ -164,7 +164,7 @@ const ProjectsSection = () => {
           {/* Scrollable Images */}
           <div
             ref={scrollContainerRef}
-            className="lg:w-1/2 overflow-y-auto max-h-[100vh] pr-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="lg:w-1/2 space-y-[90vh] overflow-y-auto max-h-[100vh] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {projects.map((project, index) => (
               <div
