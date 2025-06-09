@@ -77,7 +77,7 @@ const SecretSauceSection = () => {
               <div 
                 key={index}
                 className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 text-white
-                           hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+                           hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer transform transition-transform hover:-translate-y-1"
               >
                 {Icon && <Icon size={20} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />}
                 <span className="text-sm font-medium">
@@ -92,12 +92,12 @@ const SecretSauceSection = () => {
       {/* Overlapping Stripes */}
       {/* Back stripe (no text) */}
 
-      <div className="mt-40 w-full transform skew-y-6 z-0 bg-gradient-to-l from-blue-500 to-blue-700 py-1"> {/* Adjusted mt for overlap */}
+      <div className="mt-40 w-full transform skew-y-3 z-0 bg-gradient-to-l from-blue-500 to-blue-700 py-1"> {/* Adjusted mt for overlap */}
         <div className="overflow-hidden">
           <TextStripe words={emptyWords} direction="left" />
         </div>
       </div>
-      <div className="-mt-10 w-full transform -skew-y-3 z-10 bg-gradient-to-r from-blue-600 to-blue-800 py-1"> {/* Adjusted mt for spacing */}
+      <div className="-mt-16 w-full transform -skew-y-3 z-10 bg-gradient-to-r from-blue-600 to-blue-800 py-1"> {/* Adjusted mt for spacing */}
         <div className="overflow-hidden">
           <TextStripe words={stripeWordsWithText} direction="right" />
         </div>

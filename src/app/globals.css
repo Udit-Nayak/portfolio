@@ -6,7 +6,7 @@
     @apply bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent;
   }
   .glow-effect {
-    @apply relative after:absolute after:inset-0 after:rounded-full after:bg-gradient-to-r after:from-purple-600 after:to-blue-600 after:opacity-0 hover:after:opacity-30 after:transition-opacity after:duration-300;
+    @apply relative after:absolute after:inset-0 after:rounded-full after:bg-gradient-to-r after:from-purple-600 after:to-blue-600 after:opacity-0 hover:after:opacity-30 after:transition-opacity after:duration-150;
   }
 }
 

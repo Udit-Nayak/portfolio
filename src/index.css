@@ -61,6 +61,32 @@
   .glow-effect {
     box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
   }
+
+  /* Skill stripe animation speed-up */
+  .animate-slide-right {
+    animation: slide-right 20s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .animate-slide-left {
+    animation: slide-left 20s linear infinite !important;
+    animation-play-state: running !important;
+  }
+
+  /* Ensure animations continue even when parent is hovered */
+  .group:hover .animate-slide-right,
+  .group:hover .animate-slide-left {
+    animation-play-state: running !important;
+  }
+}
+
+@keyframes slide-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes fade-scale-in {

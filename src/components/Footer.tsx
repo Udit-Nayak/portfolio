@@ -47,17 +47,18 @@ const Footer = () => {
                 Home
               </button>
               <button 
-                onClick={() => handleNav('about')}
-                className="block text-muted-foreground hover:text-foreground transition-colors"
-              >
-                About
-              </button>
-              <button 
                 onClick={() => handleNav('work')}
                 className="block text-muted-foreground hover:text-foreground transition-colors"
               >
                 Work
               </button>
+              <button 
+                onClick={() => handleNav('about')}
+                className="block text-muted-foreground hover:text-foreground transition-colors"
+              >
+                About
+              </button>
+              
             </div>
           </div>
           
@@ -72,10 +73,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Social</h4>
             <div className="space-y-2">
-              <a href="https://www.linkedin.com/in/aayushbharti/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://www.linkedin.com/in/uditnayak/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
                 LinkedIn
               </a>
-              <a href="https://github.com/aayushbharti/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://github.com/Udit-Nayak" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
                 GitHub
               </a>
             </div>

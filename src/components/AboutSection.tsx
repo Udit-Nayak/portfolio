@@ -63,10 +63,10 @@ const AboutSection = () => {
             </div>
             
             <div className="flex gap-6 mt-8">
-              <a href="https://www.linkedin.com/in/aayushbharti/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/uditnayak/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
                 <Linkedin size={28} />
               </a>
-              <a href="https://github.com/aayushbharti/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
+              <a href="https://github.com/Udit-Nayak" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
                 <Github size={28} />
               </a>
 

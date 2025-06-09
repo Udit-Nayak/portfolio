@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 interface CollaborationSectionProps {
   onBookCall: () => void;
@@ -24,7 +25,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   const SkillStripe = ({ skills, direction = 'right' }: { skills: string[], direction?: 'left' | 'right' }) => (
     <div className="overflow-hidden py-4">
       <div className={`flex space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
-        {[...skills, ...skills].map((skill, index) => (
+        {[...skills, ...skills, ...skills].map((skill, index) => (
           <div 
             key={index}
             className="px-8 py-3 rounded-2xl text-sm font-medium glass-effect"
@@ -39,83 +40,173 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   return (
     <section className="py-20 px-6">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[95%]">
-
-        {/* Main Grid: 60% LEFT | 40% RIGHT */}
         <div className="grid lg:grid-cols-5 gap-12 items-start mb-16">
-          {/* LEFT SIDE - 3/5 = 60% */}
+          {/* LEFT SIDE */}
           <div className="lg:col-span-3 space-y-12 w-full">
-            {/* Collaboration Card */}
+
+            {/* 🌟 Animated Collaboration Card */}
             <div 
               className="relative group cursor-pointer"
               onMouseEnter={() => setIsCollabHovered(true)}
               onMouseLeave={() => setIsCollabHovered(false)}
             >
-              <div className="glass-effect rounded-2xl p-40 transition-all duration-300 group-hover:glow-effect">
-                <div className="flex items-center space-x-4 mb-1">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1">
-                    <div className="w-full h-full rounded-full overflow-hidden">
-                      <img 
-                        src="/lovable-uploads/30d2a950-ba97-4f7a-814f-dd4155c95a27.png" 
-                        alt="Profile" 
-                        className="w-full h-full object-cover"
-                      />
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="relative overflow-hidden rounded-2xl p-20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
+              >
+                <div className="relative z-10">
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    className="flex items-center space-x-4 mb-10"
+                  >
+                    <motion.div 
+                      className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1 shadow-lg shadow-purple-800/30"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-full h-full rounded-full overflow-hidden">
+                        <img 
+                          src="/lovable-uploads/30d2a950-ba97-4f7a-814f-dd4155c95a27.png" 
+                          alt="Profile" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </motion.div>
+                    <div>
+                      <motion.h3 
+                        className="text-2xl font-extrabold mb-1 text-white"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                      >
+                        Let's Collaborate
+                      </motion.h3>
+                      <motion.p 
+                        className="text-muted-foreground text-sm max-w-md"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                      >
+                        Open communication, creative results.
+                      </motion.p>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Collaboration</h3>
-                    <p className="text-muted-foreground text-sm max-w-md">
-                      I prioritize client collaboration, fostering open communication
-                    </p>
-                  </div>
-                </div>
+                  </motion.div>
 
-                {isCollabHovered && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl transition-all duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="space-y-4"
+                  >
+                    <motion.p
+                      className="text-muted-foreground text-base leading-relaxed max-w-2xl"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.6, duration: 0.5 }}
+                    >
+                      Great things are built together.
+                    </motion.p>
+                    <motion.p
+                      className="text-muted-foreground text-base leading-relaxed max-w-2xl"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.7, duration: 0.5 }}
+                    >
+                      Whether it's solving complex problems,
+                      crafting full-stack apps, or thriving in national tech contests —
+                      I love working with passionate people on meaningful products.
+                    </motion.p>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {isCollabHovered && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-2xl transition-all duration-300 pointer-events-none">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="pointer-events-auto"
+                  >
                     <Button 
                       onClick={onBookCall}
                       className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect animate-scale-in"
                     >
                       Book a Call
                     </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Email Card */}
-            <div 
-              className="glass-effect rounded-2xl p-14 relative overflow-hidden group cursor-pointer transition-all duration-300 group-hover:glow-effect"
-              onMouseEnter={() => setIsEmailHovered(true)}
-              onMouseLeave={() => setIsEmailHovered(false)}
-            >
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">AB</span>
-                </div>
-              </div>
-              
-              <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8">
-                Let's work together on your next project
-              </h2>
-               
-              <div className="flex items-center justify-center space-x-4 bg-black/30 rounded-xl p-4">
-                <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
-                  <span className="text-white text-xs">📧</span>
-                </div>
-                <span className="text-lg font-medium text-gradient">uditnayak1611@gmail.com</span>
-              </div>
-
-              {isEmailHovered && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl transition-all duration-300">
+                  </motion.div>
                 </div>
               )}
             </div>
+
+            {/* 📧 Email Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              whileHover={{ scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' }}
+              className="relative glass-effect rounded-2xl p-16 overflow-hidden group cursor-pointer transition-all duration-300"
+              onMouseEnter={() => setIsEmailHovered(true)}
+              onMouseLeave={() => setIsEmailHovered(false)}
+            >
+              <motion.div
+                className="flex items-center space-x-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.15 } }
+                }}
+              >
+                <motion.div
+                  className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  UN
+                </motion.div>
+                <div>
+                  <motion.h4
+                    className="text-lg font-bold mb-1 text-white"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                  >
+                    Email Me
+                  </motion.h4>
+                  <motion.p
+                    className="text-muted-foreground text-sm"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                  >
+                    Let's connect and build something great.
+                  </motion.p>
+                  <motion.a
+                    href="mailto:uditnayak1611@gmail.com"
+                    className="block mt-3 text-lg font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent select-all"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.4 }}
+                  >
+                    uditnayak1611@gmail.com
+                  </motion.a>
+                </div>
+              </motion.div>
+              <div className={`absolute inset-0 pointer-events-none transition-all duration-300 rounded-2xl ${isEmailHovered ? 'glow-effect' : ''}`}></div>
+            </motion.div>
           </div>
 
-          {/* RIGHT SIDE - 2/5 = 40% */}
+          {/* RIGHT SIDE */}
           <div className="lg:col-span-2 w-full">
-            {/* Skills Card */}
-            <div className="glass-effect rounded-2xl p-12 relative overflow-hidden">
+            <div className="glass-effect rounded-2xl p-0 relative overflow-hidden">
               <div className="text-right mb-6">
                 <h2 className="text-2xl lg:text-3xl font-bold mb-2">
                   Passionate about cutting-edge technologies
@@ -128,7 +219,6 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 <SkillStripe skills={skills3} direction="right" />
               </div>
 
-              {/* Website Preview Box Inside Skills */}
               <div className="glass-effect rounded-xl p-8 bg-gradient-to-br from-purple-600/10 to-blue-600/10 mt-8">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex space-x-2">
@@ -153,48 +243,72 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   >
                     Get started
                   </button>
-                
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Full-Width SaaS Section */}
-        <div className="glass-effect rounded-2xl p-12 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
+        {/* SaaS Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="glass-effect rounded-2xl p-12 w-full"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center">
+            {/* Left: SaaS Info */}
+            <div>
+              <motion.div className="flex items-center space-x-4 mb-6" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+                <motion.div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center" whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
                   <span className="text-2xl">📱</span>
-                </div>
+                </motion.div>
                 <div>
-                  <p className="text-sm text-muted-foreground">The Inside Scoop</p>
-                  <h3 className="text-2xl font-bold">Currently building a SaaS Application</h3>
+                  <motion.p className="text-sm text-muted-foreground" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.4 }}>The Inside Scoop</motion.p>
+                  <motion.h3 className="text-2xl font-bold" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>Currently building a SaaS Application</motion.h3>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div>
+              <motion.div
+                className="grid gap-4 text-sm w-full"
+                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(0, 1fr))' }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.15 } }
+                }}
+              >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <h4 className="font-semibold mb-2">Payment System</h4>
                   <p className="text-muted-foreground">Architecture</p>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
                   <h4 className="font-semibold mb-2">Monitoring & Analytics</h4>
                   <p className="text-muted-foreground">Infrastructure</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Design System & UI</h4>
-                  <p className="text-muted-foreground">Components</p>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
                   <h4 className="font-semibold mb-2">API Gateway & Documentation</h4>
                   <p className="text-muted-foreground">Integration</p>
-                </div>
-              </div>
+                </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}>
+                  <h4 className="font-semibold mb-2">Design System & UI</h4>
+                  <p className="text-muted-foreground">Components</p>
+                </motion.div>
+                
+              </motion.div>
+            </div>
+            {/* Right: Placeholder Image */}
+            <div className="flex justify-center items-center w-full h-full group">
+              <img 
+                src="https://placehold.co/300x200" 
+                alt="Placeholder" 
+                className="rounded-xl object-cover max-w-full max-h-48 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/30"
+              />
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
