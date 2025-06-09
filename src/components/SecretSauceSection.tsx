@@ -77,7 +77,7 @@ const SecretSauceSection = () => {
               <div 
                 key={index}
                 className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 text-white
-                           hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer transform transition-transform hover:-translate-y-1"
+                           hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer transform  hover:-translate-y-1"
               >
                 {Icon && <Icon size={20} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />}
                 <span className="text-sm font-medium">
