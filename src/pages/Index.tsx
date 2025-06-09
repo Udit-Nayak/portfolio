@@ -9,6 +9,8 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import BookCallModal from '@/components/BookCallModal';
 import BookCallCard from '@/components/BookCallCard';
+import Spline from '@splinetool/react-spline';
+import { SplineErrorBoundary } from '@/components/SplineErrorBoundary';
 
 const Index = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
@@ -16,6 +18,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
+        <SplineErrorBoundary>
+          <Spline scene="https://prod.spline.design/6tvbGQe5QnQkq1vG/scene.splinecode" />
+        </SplineErrorBoundary>
+      </div>
       <Navigation onBookCall={() => setIsBookCallOpen(true)} />
       
       <main>
