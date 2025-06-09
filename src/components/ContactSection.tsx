@@ -1,5 +1,5 @@
-
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 interface ContactSectionProps {
   onBookCall: () => void;
@@ -7,29 +7,53 @@ interface ContactSectionProps {
 
 const ContactSection = ({ onBookCall }: ContactSectionProps) => {
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="container mx-auto max-w-4xl text-center">
-        <div className="mb-8">
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-2xl font-bold">
+    <section id="contact" className="relative px-6 overflow-hidden min-h-screen">
+      
+      <div className="container mx-auto max-w-6xl text-center relative z-10 flex flex-col justify-center min-h-screen">
+        {/* Logo */}
+        <div className="mb-4">
+          <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-2xl">
             AB
           </div>
-          
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            From concept to creation<br />
-            let's make it happen!
-          </h2>
         </div>
         
-        <Button 
-          onClick={onBookCall}
-          size="lg"
-          className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect hover:scale-105 px-12 py-4 text-lg mb-6"
-        >
-          Get in Touch
-        </Button>
+        {/* Main heading - matching the reference image style */}
+        <div className="mb-2">
+          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold mb-6 text-white leading-none tracking-tight">
+            FROM CONCEPT TO{' '}
+            <span className="block text-white font-black">
+              CREATION
+            </span>
+          </h2>
+          <h3 className="text-2xl lg:text-6xl xl:text-4xl font-bold text-white mb-8 leading-none tracking-tight">
+            LET'S MAKE IT{' '}
+            <span className="text-white font-black">
+              HAPPEN!
+            </span>
+          </h3>
+        </div>
         
-        <p className="text-muted-foreground">
-          I am available for freelance projects
+        {/* CTA Button */}
+        <div className="mb-8">
+          <Button 
+            onClick={onBookCall}
+            size="lg"
+            className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 hover:border-slate-500 transition-all duration-300 px-8 py-4 text-lg rounded-full group shadow-xl hover:shadow-2xl"
+          >
+            Get In Touch
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </Button>
+        </div>
+        
+        {/* Availability statement */}
+        <p className="text-xl text-slate-300 mb-2 font-medium">
+          I'm available for full-time roles & freelance projects.
+        </p>
+        
+        {/* Skills description */}
+        <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          I thrive on crafting dynamic web applications, and<br />
+          delivering seamless user experiences.
         </p>
       </div>
     </section>
