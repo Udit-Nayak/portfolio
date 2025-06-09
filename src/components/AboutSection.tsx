@@ -43,19 +43,19 @@ const AboutSection = () => {
           
           <div className="relative">
             <div 
-              className="glass-effect rounded-2xl p-12 overflow-hidden cursor-pointer transition-all duration-300"
+              className="glass-effect rounded-2xl p-12 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:shadow-2xl hover:scale-105"
               onMouseEnter={() => setIsImageHovered(true)}
               onMouseLeave={() => setIsImageHovered(false)}
             >
               <img 
                 src="/lovable-uploads/865f36a2-dfcd-40b0-bbe3-cce3f7d6e2de.png" 
                 alt="About me preview"
-                className="w-full h-auto transition-all duration-300"
+                className="w-full h-auto transition-all duration-500 ease-in-out transform hover:rotate-2 hover:scale-110"
               />
               
               {isImageHovered && (
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-blue-600/30 backdrop-blur-sm flex items-center justify-center transition-all duration-500 ease-in-out">
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-50 animate-pulse shadow-lg transform hover:scale-110 transition-all duration-300"></div>
                 </div>
               )}
             </div>

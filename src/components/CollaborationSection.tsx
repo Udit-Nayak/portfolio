@@ -6,7 +6,8 @@ interface CollaborationSectionProps {
 }
 
 const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isCollabHovered, setIsCollabHovered] = useState(false);
+  const [isEmailHovered, setIsEmailHovered] = useState(false);
 
   const skills1 = [
     'INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE', 'SEO OPTIMIZED'
@@ -46,10 +47,10 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
             {/* Collaboration Card */}
             <div 
               className="relative group cursor-pointer"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => setIsCollabHovered(true)}
+              onMouseLeave={() => setIsCollabHovered(false)}
             >
-              <div className="glass-effect rounded-2xl p-32  transition-all duration-300 group-hover:glow-effect">
+              <div className="glass-effect rounded-2xl p-32 transition-all duration-300 group-hover:glow-effect">
                 <div className="flex items-center space-x-4 mb-1">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1">
                     <div className="w-full h-full rounded-full overflow-hidden">
@@ -68,7 +69,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   </div>
                 </div>
 
-                {isHovered && (
+                {isCollabHovered && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl transition-all duration-300">
                     <Button 
                       onClick={onBookCall}
@@ -84,6 +85,8 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
             {/* Email Card */}
             <div 
               className="glass-effect rounded-2xl p-24 relative overflow-hidden group cursor-pointer transition-all duration-300 group-hover:glow-effect"
+              onMouseEnter={() => setIsEmailHovered(true)}
+              onMouseLeave={() => setIsEmailHovered(false)}
             >
               <div className="flex items-center justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
@@ -101,6 +104,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 </div>
                 <span className="text-lg font-medium">hello@aayushbharti.in</span>
               </div>
+
+              {isEmailHovered && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl transition-all duration-300">
+                </div>
+              )}
             </div>
           </div>
 

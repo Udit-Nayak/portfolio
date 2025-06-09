@@ -20,12 +20,12 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });  // This enables smooth scrolling
     }
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${  // duration-300 controls the animation speed
       isScrolled ? 'glass-effect py-4 mx-4 mt-4 rounded-full' : 'py-6'
     }`}>
       <div className={`container mx-auto px-6 flex items-center justify-between ${

@@ -59,7 +59,43 @@ const ProjectsSection = () => {
       technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity CMS", "Auth.js"],
       image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200",
       links: { live: "#", github: "#" }
-    }
+    },
+    {
+      title: "AI-Powered Analytics Dashboard",
+      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
+      features: [
+        "Machine learning algorithms for predictive analytics",
+        "Interactive data visualization with D3.js",
+        "Real-time data processing and alerts"
+      ],
+      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
+      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
+    },
+    {
+      title: "E-Commerce Platform",
+      description: "Modern e-commerce solution with advanced features and seamless user experience.",
+      features: [
+        "Real-time inventory management and tracking",
+        "Advanced search and filtering capabilities",
+        "Integrated payment gateway and order processing"
+      ],
+      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
+      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
+    },
+    {
+      title: "AI-Powered Analytics Dashboard",
+      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
+      features: [
+        "Machine learning algorithms for predictive analytics",
+        "Interactive data visualization with D3.js",
+        "Real-time data processing and alerts"
+      ],
+      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
+      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      links: { live: "#", github: "#" }
+    },
   ];
 
   useEffect(() => {
@@ -127,7 +163,7 @@ const ProjectsSection = () => {
 
   return (
     <section ref={sectionRef} className="min-h-screen relative">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
             Featured Projects
@@ -139,7 +175,7 @@ const ProjectsSection = () => {
 
         <div ref={containerRef} className="relative lg:flex">
           {/* Text Content */}
-          image.png          <div className="lg:w-1/2 lg:pr-6">
+          <div className="lg:w-1/2 lg:pr-6">
             <div className="sticky top-24 glass-effect rounded-3xl p-8">
               <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
               <p className="text-lg text-gray-600 mb-6">{projects[currentProject].description}</p>
@@ -164,9 +200,9 @@ const ProjectsSection = () => {
           {/* Scrollable Images */}
           <div
             ref={scrollContainerRef}
-            className="lg:w-1/2 h-screen sticky top-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-y snap-mandatory"
+            className="lg:w-1/2 h-[60vh] sticky top-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] snap-y snap-mandatory"
           >
-            <div className="py-8 space-y-[50vh]">
+            <div className="py-40 space-y-[20vh]">
               {projects.map((project, index) => (
                 <div
                   key={index}
@@ -178,11 +214,7 @@ const ProjectsSection = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`rounded-xl shadow-lg w-full h-[50vh] object-cover transition-all duration-500 ${
-                        currentProject === index 
-                          ? 'scale-100 opacity-100 transform-gpu' 
-                          : 'scale-95 opacity-70 transform-gpu'
-                      }`}
+                      className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${currentProject === index ? 'scale-100 opacity-100 transform-gpu' : 'scale-95 opacity-70 transform-gpu'}`}
                     />
                   </div>
                 </div>

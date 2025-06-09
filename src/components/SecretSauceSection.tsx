@@ -43,6 +43,17 @@ const SecretSauceSection = () => {
           </div>
         </div>
       </div>
+
+      <div className="mt-12 bg-gradient-to-l from-blue-600 to-purple-600 transform skew-y-3 py-8">
+        <div className="overflow-hidden">
+          <div className="animate-slide-left">
+            <p className="text-4xl font-bold text-white whitespace-nowrap">
+              Creating innovative solutions • Delivering excellence • 
+              Creating innovative solutions • Delivering excellence • 
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
