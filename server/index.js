@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const MONGODB_URI = 'mongodb+srv://uditnayak1611:vmf0e5PeDJGtV26j@cluster0.zv52hh2.mongodb.net/portfolio?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI_API;
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
