@@ -1,4 +1,5 @@
 import { Atom, GitBranch, Github, Cloud, Container, Smartphone, Terminal, Database, Zap, Framer, Layers, Package, Diamond, Type, Wind, Server, Boxes, Rabbit, ListTree, UserCheck, Globe, Sparkle } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 const SecretSauceSection = () => {
   const skills = [
@@ -58,10 +59,9 @@ const SecretSauceSection = () => {
 
   return (
     <section className="py-20 px-6 relative overflow-hidden">
-      <div className=" mb-20 absolute inset-0 flex items-center justify-center">
-        <div className="w-96 h-96 border-2 border-purple-600/20 rounded-full animate-rotate-slow"></div>
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Spline scene="https://prod.spline.design/Y3kdRmAP8pwbTwf3/scene.splinecode" />
       </div>
-      
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <p className="text-sm text-muted-foreground mb-4">MY SKILLS</p>
