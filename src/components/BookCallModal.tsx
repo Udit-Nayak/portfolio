@@ -1,8 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from 'sonner';
 
 interface BookCallModalProps {
   isOpen: boolean;
@@ -16,6 +16,7 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
     company: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -29,10 +30,33 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
     };
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    onClose();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit booking');
+      }
+
+      const data = await response.json();
+      toast.success('Booking submitted successfully!');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      onClose();
+    } catch (error) {
+      toast.error('Failed to submit booking. Please try again.');
+      console.error('Error submitting booking:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -58,6 +82,7 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
+            disabled={isSubmitting}
           />
           
           <Input
@@ -66,12 +91,14 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
+            disabled={isSubmitting}
           />
           
           <Input
             placeholder="Company (Optional)"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
+            disabled={isSubmitting}
           />
           
           <Textarea
@@ -79,6 +106,7 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             value={formData.message}
             onChange={(e) => setFormData({...formData, message: e.target.value})}
             required
+            disabled={isSubmitting}
           />
           
           <div className="flex space-x-3">
@@ -87,14 +115,16 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
               variant="outline" 
               onClick={onClose}
               className="flex-1"
+              disabled={isSubmitting}
             >
               Cancel
             </Button>
             <Button 
               type="submit"
               className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </div>
         </form>
