@@ -210,11 +210,11 @@ const ProjectsSection = () => {
                   data-index={index}
                   className="h-[60vh] flex items-center justify-center snap-start snap-always"
                 >
-                  <div className="relative w-full max-w-xl mx-auto">
+                  <div className="relative w-full max-w-xl mx-auto group">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${currentProject === index ? 'scale-100 opacity-100 transform-gpu' : 'scale-95 opacity-70 transform-gpu'}`}
+                      className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${currentProject === index ? 'scale-100 opacity-100 transform-gpu' : 'scale-95 opacity-70 transform-gpu'} group-hover:scale-105 group-hover:shadow-2xl`}
                     />
                   </div>
                 </div>

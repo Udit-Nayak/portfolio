@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { ArrowRight, Clipboard } from 'lucide-react';
 
 interface HeroSectionProps {
   onBookCall: () => void;
@@ -8,6 +8,24 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onBookCall }: HeroSectionProps) => {
   const [isImageHovered, setIsImageHovered] = useState(false);
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('hello@aayushbharti.in');
+      setIsEmailCopied(true);
+      setTimeout(() => setIsEmailCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
@@ -31,18 +49,34 @@ const HeroSection = ({ onBookCall }: HeroSectionProps) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
+            <div 
               onClick={onBookCall}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="relative inline-flex items-center rounded-full
+                         text-lg font-medium cursor-pointer
+                         transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl
+                         group
+                         bg-gradient-to-r from-purple-700 to-blue-700 text-white
+                         hover:bg-white hover:text-black"
             >
-              Let's Connect
-            </Button>
-            <Button 
-              variant="outline" 
-              className="px-8 py-3 rounded-full text-lg font-medium border-white/20 hover:bg-white/10 transition-all duration-300"
+              <span className="px-8 py-3 pr-2">Let's Connect</span>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center -mr-2
+                              bg-gray-800 group-hover:bg-white
+                              transition-colors duration-300">
+                <ArrowRight size={20} className="text-white group-hover:text-black transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <div 
+              onClick={copyEmail}
+              className="relative flex items-center gap-2 px-8 py-3 rounded-full text-lg font-medium text-white cursor-pointer transition-all duration-300 hover:bg-white/10 hover:shadow-xl"
             >
-              View My Work
-            </Button>
+              <Clipboard size={20} /> hello@aayushbharti.in
+              {isEmailCopied && (
+                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap">
+                  Email copied!
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

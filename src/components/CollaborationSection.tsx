@@ -102,7 +102,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
                   <span className="text-white text-xs">📧</span>
                 </div>
-                <span className="text-lg font-medium">hello@aayushbharti.in</span>
+                <span className="text-lg font-medium text-gradient">hello@aayushbharti.in</span>
               </div>
 
               {isEmailHovered && (
@@ -147,12 +147,13 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 </h4>
 
                 <div className="flex space-x-2 justify-center">
-                  <button className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm font-medium">
+                  <button 
+                    onClick={onBookCall}
+                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm font-medium"
+                  >
                     Get started
                   </button>
-                  <button className="px-4 py-2 border border-white/20 rounded-lg text-sm font-medium">
-                    Read More
-                  </button>
+                
                 </div>
               </div>
             </div>

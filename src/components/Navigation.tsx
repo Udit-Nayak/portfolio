@@ -33,7 +33,7 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
       }`}>
         <div className="text-2xl font-bold text-gradient">AB</div>
         
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-8 ml-20">
           <button 
             onClick={() => scrollToSection('hero')}
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -41,16 +41,16 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
             Home
           </button>
           <button 
-            onClick={() => scrollToSection('about')}
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            About
-          </button>
-          <button 
             onClick={() => scrollToSection('work')}
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Work
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            About
           </button>
           <button 
             onClick={() => scrollToSection('contact')}

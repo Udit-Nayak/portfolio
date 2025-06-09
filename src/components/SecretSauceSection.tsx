@@ -1,13 +1,64 @@
+import { Atom, GitBranch, Github, Cloud, Container, Smartphone, Terminal, Database, Zap, Framer, Layers, Package, Diamond, Type, Wind, Server, Boxes, Rabbit, ListTree, UserCheck, Globe, Sparkle } from 'lucide-react';
+
 const SecretSauceSection = () => {
   const skills = [
     'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
     'Contentful', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB', 'Prisma',
-    'Zustand', 'Zod', 'pnpm', 'Bun', 'Git', 'GitHub', 'Vercel', 'AWS', 'Docker', 'Linux'
+    'Zustand', 'Zod', 'pnpm', 'Bun', 'Git', 'GitHub', 'Vercel', 'AWS', 'Docker', 'Linux',
+    'Expo', 'Clerk'
   ];
+
+  const skillIcons: { [key: string]: React.ElementType } = {
+    'ReactJS': Atom,
+    'Next.js': Globe, 
+    'TypeScript': Type,
+    'Tailwind CSS': Wind,
+    'Motion': Framer,
+    'Sanity': Layers,
+    'Contentful': Boxes,
+    'Node.JS': Server,
+    'Express.JS': Zap,
+    'PostgreSQL': Database,
+    'MongoDB': Database,
+    'Prisma': Diamond, 
+    'Zustand': Package,
+    'Zod': ListTree,
+    'pnpm': Boxes,
+    'Bun': Rabbit,
+    'Git': GitBranch,
+    'GitHub': Github,
+    'Vercel': Cloud, 
+    'AWS': Cloud,
+    'Docker': Container,
+    'Linux': Terminal,
+    'Expo': Smartphone,
+    'Clerk': UserCheck,
+  };
+
+  const stripeWordsWithText = ['INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE'];
+  const emptyWords: string[] = []; // For the back stripe without text
+
+  const TextStripe = ({ words, direction }: { words: string[], direction: 'left' | 'right' }) => (
+    <div className="overflow-hidden py-2"> {/* Adjusted padding for slimmer stripe */}
+      <div className={`flex space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
+        {words.length > 0 ? (
+          [...words, ...words, ...words].map((word, index) => (
+            <span key={index} className="text-white text-4xl font-bold flex items-center gap-4">
+              {word}
+              <Sparkle size={24} className="text-white" />
+            </span>
+          ))
+        ) : (
+          // Render invisible content to maintain height and animation space
+          [...Array(10)].map((_, i) => <span key={i} className="text-white text-4xl font-bold flex items-center gap-4 opacity-0">HIDDEN TEXT <Sparkle size={24} className="opacity-0" /></span>)
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-20 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className=" mb-20 absolute inset-0 flex items-center justify-center">
         <div className="w-96 h-96 border-2 border-purple-600/20 rounded-full animate-rotate-slow"></div>
       </div>
       
@@ -20,40 +71,40 @@ const SecretSauceSection = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {skills.map((skill, index) => (
-            <div 
-              key={index}
-              className="glass-effect rounded-xl p-4 text-center hover:glow-effect transition-all duration-300 group cursor-pointer"
-            >
-              <span className="text-sm font-medium group-hover:text-primary transition-colors">
-                {skill}
-              </span>
-            </div>
-          ))}
+          {skills.map((skill, index) => {
+            const Icon = skillIcons[skill];
+            return (
+              <div 
+                key={index}
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 text-white
+                           hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+              >
+                {Icon && <Icon size={20} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />}
+                <span className="text-sm font-medium">
+                  {skill}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
       
-      <div className="mt-20 bg-gradient-to-r from-purple-600 to-blue-600 transform -skew-y-3 py-8">
+      {/* Overlapping Stripes */}
+      {/* Back stripe (no text) */}
+
+      <div className="mt-40 w-full transform skew-y-6 z-0 bg-gradient-to-l from-blue-500 to-blue-700 py-1"> {/* Adjusted mt for overlap */}
         <div className="overflow-hidden">
-          <div className="animate-slide-right">
-            <p className="text-4xl font-bold text-white whitespace-nowrap">
-              Passionate about cutting-edge technologies • Building the future • 
-              Passionate about cutting-edge technologies • Building the future • 
-            </p>
-          </div>
+          <TextStripe words={emptyWords} direction="left" />
+        </div>
+      </div>
+      <div className="-mt-10 w-full transform -skew-y-3 z-10 bg-gradient-to-r from-blue-600 to-blue-800 py-1"> {/* Adjusted mt for spacing */}
+        <div className="overflow-hidden">
+          <TextStripe words={stripeWordsWithText} direction="right" />
         </div>
       </div>
 
-      <div className="mt-20 bg-gradient-to-l from-blue-600 to-purple-600 transform skew-y-3 py-8">
-        <div className="overflow-hidden">
-          <div className="animate-slide-left">
-            <p className="text-4xl font-bold text-white whitespace-nowrap">
-              Creating innovative solutions • Delivering excellence • 
-              Creating innovative solutions • Delivering excellence • 
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Front stripe (with text) */}
+      
     </section>
   );
 };
