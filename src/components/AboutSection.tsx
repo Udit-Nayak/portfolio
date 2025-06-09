@@ -25,7 +25,7 @@ const AboutSection = () => {
         <img
           src="/lovable-uploads/object.png"
           alt="Floating object"
-          className="absolute pointer-events-none transition-transform duration-75 ease-out z-50 w-80 h-80"
+          className="absolute pointer-events-none z-50 w-80 h-80"
           style={{
             transform: `translate(${mousePosition.x-770}px, ${mousePosition.y-350}px)`,
           }}
