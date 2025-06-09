@@ -63,7 +63,7 @@ const BookCallCard = ({ isOpen, onClose, onBookCall }: BookCallCardProps) => {
                 </div>
               </div>
               <div className="space-y-2">
-                <p className="font-semibold">hello@aayushbharti.in</p>
+                <p className="font-semibold">uditnayak1611@gmail.com</p>
                 <p className="text-sm text-muted-foreground">Send me an email directly</p>
               </div>
             </div>

@@ -1,9 +1,28 @@
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNav = (sectionId?: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      if (sectionId) {
+        setTimeout(() => scrollToSection(sectionId), 300);
+      }
+    } else {
+      if (sectionId) {
+        scrollToSection(sectionId);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -12,7 +31,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="text-2xl font-bold text-gradient mb-4">AB</div>
+            <div className="text-2xl font-bold text-gradient mb-4">UN</div>
             <p className="text-muted-foreground">
               Full-Stack Developer passionate about creating digital experiences.
             </p>
@@ -22,19 +41,19 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Navigation</h4>
             <div className="space-y-2">
               <button 
-                onClick={() => scrollToSection('hero')}
+                onClick={() => handleNav()}
                 className="block text-muted-foreground hover:text-foreground transition-colors"
               >
                 Home
               </button>
               <button 
-                onClick={() => scrollToSection('about')}
+                onClick={() => handleNav('about')}
                 className="block text-muted-foreground hover:text-foreground transition-colors"
               >
                 About
               </button>
               <button 
-                onClick={() => scrollToSection('work')}
+                onClick={() => handleNav('work')}
                 className="block text-muted-foreground hover:text-foreground transition-colors"
               >
                 Work
@@ -45,22 +64,19 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>hello@aayushbharti.in</p>
-              <p>India - 24:55</p>
+              <p>uditnayak1611@gmail.com</p>
+              <p>India</p>
             </div>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Social</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://www.linkedin.com/in/aayushbharti/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
                 LinkedIn
               </a>
-              <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://github.com/aayushbharti/" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-foreground transition-colors">
                 GitHub
-              </a>
-              <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
-                Twitter
               </a>
             </div>
           </div>

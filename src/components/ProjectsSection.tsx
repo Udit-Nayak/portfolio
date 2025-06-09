@@ -162,7 +162,7 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="min-h-screen relative">
+    <section ref={sectionRef} id="work" className="min-h-screen relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">

@@ -50,7 +50,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               onMouseEnter={() => setIsCollabHovered(true)}
               onMouseLeave={() => setIsCollabHovered(false)}
             >
-              <div className="glass-effect rounded-2xl p-32 transition-all duration-300 group-hover:glow-effect">
+              <div className="glass-effect rounded-2xl p-40 transition-all duration-300 group-hover:glow-effect">
                 <div className="flex items-center space-x-4 mb-1">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1">
                     <div className="w-full h-full rounded-full overflow-hidden">
@@ -84,7 +84,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
 
             {/* Email Card */}
             <div 
-              className="glass-effect rounded-2xl p-24 relative overflow-hidden group cursor-pointer transition-all duration-300 group-hover:glow-effect"
+              className="glass-effect rounded-2xl p-14 relative overflow-hidden group cursor-pointer transition-all duration-300 group-hover:glow-effect"
               onMouseEnter={() => setIsEmailHovered(true)}
               onMouseLeave={() => setIsEmailHovered(false)}
             >
@@ -102,7 +102,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 <div className="w-6 h-6 rounded bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center">
                   <span className="text-white text-xs">📧</span>
                 </div>
-                <span className="text-lg font-medium text-gradient">hello@aayushbharti.in</span>
+                <span className="text-lg font-medium text-gradient">uditnayak1611@gmail.com</span>
               </div>
 
               {isEmailHovered && (

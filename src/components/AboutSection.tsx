@@ -44,7 +44,7 @@ const AboutSection = () => {
             
             <div className="space-y-6 text-muted-foreground">
               <p className="text-lg">
-                I'm Aayush Bharti, a proactive full-stack developer passionate
+                I'm Udit Nayak, a proactive full-stack developer passionate
                 about creating dynamic web experiences. From frontend to
                 backend, I thrive on solving complex problems with clean,
                 efficient code. My expertise spans React, Next.js, and Node.js,
@@ -69,9 +69,7 @@ const AboutSection = () => {
               <a href="https://github.com/aayushbharti/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
                 <Github size={28} />
               </a>
-              <a href="https://twitter.com/aayushbharti/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
-                <Twitter size={28} />
-              </a>
+
             </div>
           </div>
           
@@ -92,13 +90,13 @@ const AboutSection = () => {
               />
               
               {isImageHovered && (
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-blue-600/30 backdrop-blur-sm flex items-center justify-center transition-all duration-500 ease-in-out">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-50 animate-pulse shadow-lg transform hover:scale-110 transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-blue-600/30 backdrop-blur-sm flex items-center justify-center transition-all duration-500 ease-in-out">
+                  
                 </div>
               )}
             </div>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-8xl font-bold text-white opacity-20">AB</div>
+                <div className="text-8xl font-bold text-white opacity-80">UN</div>
             </div>
           </div>
         </div>

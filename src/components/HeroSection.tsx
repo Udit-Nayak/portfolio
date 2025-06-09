@@ -70,7 +70,7 @@ const HeroSection = ({ onBookCall }: HeroSectionProps) => {
               onClick={copyEmail}
               className="relative flex items-center gap-2 px-8 py-3 rounded-full text-lg font-medium text-white cursor-pointer transition-all duration-300 hover:bg-white/10 hover:shadow-xl"
             >
-              <Clipboard size={20} /> hello@aayushbharti.in
+              <Clipboard size={20} /> uditnayak1611@gmail.com
               {isEmailCopied && (
                 <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap">
                   Email copied!
