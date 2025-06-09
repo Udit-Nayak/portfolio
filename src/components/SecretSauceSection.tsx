@@ -44,7 +44,7 @@ const SecretSauceSection = () => {
         </div>
       </div>
 
-      <div className="mt-12 bg-gradient-to-l from-blue-600 to-purple-600 transform skew-y-3 py-8">
+      <div className="mt-20 bg-gradient-to-l from-blue-600 to-purple-600 transform skew-y-3 py-8">
         <div className="overflow-hidden">
           <div className="animate-slide-left">
             <p className="text-4xl font-bold text-white whitespace-nowrap">
