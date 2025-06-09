@@ -95,7 +95,9 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
 
         <Button
           onClick={() => {
-            if (location.pathname !== '/') {
+            if (location.pathname === '/links' || location.pathname === '/uses') {
+              onBookCall();
+            } else if (location.pathname !== '/') {
               navigate('/');
               setTimeout(() => onBookCall(), 300);
             } else {

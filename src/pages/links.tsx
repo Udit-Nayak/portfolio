@@ -6,24 +6,25 @@ import BookCallModal from '@/components/BookCallModal';
 import BookCallCard from '@/components/BookCallCard';
 
 const profile = {
-  name: 'Aayush Bharti',
+  name: 'Udit Nayak',
   avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   badges: [
     { label: 'Developer', color: 'bg-blue-700' },
     { label: 'Freelancer', color: 'bg-green-700' },
     { label: 'Problem Solver', color: 'bg-purple-700' },
   ],
-  website: 'https://aayushbharti.in',
-  email: 'hello@aayushbharti.in',
+  website: '',
+  email: 'uditnayak1611@gmail.com',
 };
 
 const links = [
-  { icon: '🔗', label: 'LinkedIn', url: 'https://linkedin.com' },
-  { icon: '✈️', label: 'Telegram', url: 'https://telegram.org' },
-  { icon: '🐱', label: 'GitHub', url: 'https://github.com' },
-  { icon: '📖', label: 'Guestbook', url: '#' },
-  { icon: '🐦', label: 'X (Twitter)', url: 'https://twitter.com' },
+  { icon: '🔗', label: 'LinkedIn', url: 'https://www.linkedin.com/in/uditnayak/' },
+  { icon: '🐱', label: 'GitHub', url: 'https://github.com/Udit-Nayak' },
+  { icon: '📸', label: 'Instagram', url: 'https://www.instagram.com/udiiit.t?igsh=MTVvbnl4eHZ2aXV5dA==' },
+
+  { icon: '✈️', label: 'Telegram', url: 'https://telegram.me/uditnayak16' },
 ];
+
 
 const Links = () => {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
