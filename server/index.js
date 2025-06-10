@@ -5,8 +5,15 @@ require('dotenv').config();
 
 const app = express();
 
+// CORS Configuration - Allow requests from the same domain
+const corsOptions = {
+  origin: true, // Allow requests from the same domain
+  methods: ['GET', 'POST'],
+  credentials: true,
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection
