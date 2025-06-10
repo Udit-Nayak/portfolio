@@ -120,7 +120,7 @@ const AboutSection = () => {
                          bg-gradient-to-br from-blue-900/50 to-purple-900/50"
             >
               <img
-                src="/lovable-uploads/865f36a2-dfcd-40b0-bbe3-cce3f7d6e2de.png"
+                src="/lovable-uploads/aboutme.png"
                 alt="About me preview"
                 className="w-full h-auto transition-all duration-500 ease-in-out transform group-hover:rotate-2 group-hover:scale-110"
               />

@@ -30,7 +30,7 @@ const ContactSection = ({ onBookCall }: ContactSectionProps) => {
         {/* Logo */}
         <div className="mb-4">
           <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-2xl">
-            AB
+            UN
           </div>
         </div>
         {/* Main heading - matching the reference image style */}
@@ -38,7 +38,7 @@ const ContactSection = ({ onBookCall }: ContactSectionProps) => {
           <div className="flex flex-col items-center">
             <div className="flex flex-col justify-center items-center gap-0 mb-2">
               <span className={`text-3xl lg:text-4xl xl:text-6xl font-bold text-white leading-none tracking-tight ${animate ? 'animate-slide-in-left' : ''}`}>FROM CONCEPT TO</span>
-              <span className={`block text-3xl lg:text-4xl xl:text-6xl font-black text-white leading-none tracking-tight ${animate ? 'animate-slide-in-right' : ''} ml-0`} style={{marginTop: '0.2em'}}>CREATION</span>
+              <span className={`block text-3xl lg:text-4xl xl:text-6xl text-gradient font-black text-white leading-none tracking-tight ${animate ? 'animate-slide-in-right' : ''} ml-0`} style={{marginTop: '0.2em'}}>CREATION</span>
             </div>
             <h3 className={`text-2xl lg:text-6xl xl:text-4xl font-bold text-white mb-8 leading-none tracking-tight ${animate ? 'animate-pop-in-center' : ''}`}>
               LET'S MAKE IT{' '}

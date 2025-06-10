@@ -1,13 +1,11 @@
-import { Atom, GitBranch, Github, Cloud, Container, Smartphone, Terminal, Database, Zap, Framer, Layers, Package, Diamond, Type, Wind, Server, Boxes, Rabbit, ListTree, UserCheck, Globe, Sparkle } from 'lucide-react';
+import { Atom, GitBranch, Github, Cloud, Container, Smartphone, Terminal, Database, Zap, Framer, Layers, Package, Diamond, Type, Wind, Server, Boxes, Rabbit, ListTree, UserCheck, Globe, Sparkle, Code2, FileCode, Mail, Network, Cpu } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
 
 const SecretSauceSection = () => {
   const skills = [
-    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
-    'Contentful', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB', 'Prisma',
-    'Zustand', 'Zod', 'pnpm', 'Bun', 'Git', 'GitHub', 'Vercel', 'AWS', 'Docker', 'Linux',
-    'Expo', 'Clerk'
+    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB',
+    'Zustand', 'Git', 'GitHub', "C","C++","Python","Java","HTML","CSS","JavaScript", "JQuery","Bootstrap","DaisyUI","Socket.io","Nodemailer", "DSA"
   ];
 
   const skillIcons: { [key: string]: React.ElementType } = {
@@ -35,6 +33,19 @@ const SecretSauceSection = () => {
     'Linux': Terminal,
     'Expo': Smartphone,
     'Clerk': UserCheck,
+    'C': Code2,
+    'C++': Code2,
+    'Python': FileCode,
+    'Java': FileCode,
+    'HTML': FileCode,
+    'CSS': FileCode,
+    'JavaScript': FileCode,
+    'JQuery': Network,
+    'Bootstrap': Boxes,
+    'DaisyUI': Boxes,
+    'Socket.io': Network,
+    'Nodemailer': Mail,
+    'DSA': Cpu
   };
 
   const stripeWordsWithText = ['INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE'];
@@ -123,7 +134,7 @@ const SecretSauceSection = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-700 bg-gray-800 text-white
+                className="flex items-center justify-center gap-2 px-4 py-4 rounded-lg border border-gray-700 bg-gray-800 text-white
                            hover:border-purple-600 hover:bg-gray-700 transition-all duration-300 cursor-pointer"
               >
                 {Icon && <Icon size={20} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />}

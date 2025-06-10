@@ -73,10 +73,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                     </motion.div>
                     <div>
                       <motion.h3 
-                        className="text-2xl font-extrabold mb-1 text-white"
+                        className="text-2xl font-extrabold mb-1 text-white text-gradient"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.5 }}
+
                       >
                         Let's Collaborate
                       </motion.h3>
@@ -144,7 +145,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               whileHover={{ scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' }}
-              className="relative glass-effect rounded-2xl p-16 overflow-hidden group cursor-pointer transition-all duration-300"
+              className="relative glass-effect rounded-2xl p-20 overflow-hidden group cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsEmailHovered(true)}
               onMouseLeave={() => setIsEmailHovered(false)}
             >
@@ -213,8 +214,8 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="text-right mb-6 p-2"
               >
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Passionate about cutting-edge technologies
+                <h2 className="p-2 text-2xl lg:text-3xl font-bold">
+                  Passionate about <span className="text-gradient">cutting-edge technologies</span>
                 </h2>
               </motion.div>
               

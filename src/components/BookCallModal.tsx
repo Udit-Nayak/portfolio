@@ -72,7 +72,7 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
         isOpen ? 'animate-scale-in' : ''
       }`}>
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">Book a Call</h2>
+          <h2 className="text-2xl font-bold mb-2 text-gradient">Book a Call</h2>
           <p className="text-muted-foreground">Let's discuss your project</p>
         </div>
         
