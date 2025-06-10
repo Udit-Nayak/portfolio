@@ -5,9 +5,12 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS Configuration - Allow requests from the same domain
+// CORS Configuration
 const corsOptions = {
-  origin: true, // Allow requests from the same domain
+  origin: [
+    'http://localhost:8080',
+    'https://vercel.com/udits-projects-12ce8745/frontend/GmGyY7qGnR3qYXou4phR4gHM7KZY' // Replace with your frontend's Vercel URL
+  ],
   methods: ['GET', 'POST'],
   credentials: true,
 };
@@ -42,12 +45,18 @@ const Booking = mongoose.model('Booking', bookingSchema);
 // Routes
 app.post('/api/bookings', async (req, res) => {
   try {
+    console.log('Received booking request:', req.body);
     const booking = new Booking(req.body);
     await booking.save();
+    console.log('Booking saved successfully:', booking);
     res.status(201).json({ message: 'Booking created successfully', booking });
   } catch (error) {
     console.error('Error creating booking:', error);
-    res.status(400).json({ message: 'Error creating booking', error: error.message });
+    res.status(400).json({ 
+      message: 'Error creating booking', 
+      error: error.message,
+      details: error.toString()
+    });
   }
 });
 
@@ -65,4 +74,4 @@ app.get('/api/bookings', async (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-}); 
+});
