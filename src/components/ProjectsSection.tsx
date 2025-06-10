@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -164,37 +165,94 @@ const ProjectsSection = () => {
   return (
     <section ref={sectionRef} id="work" className="min-h-screen relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-center mb-16"
+        >
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
+          >
             Featured Projects
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+          >
             A collection of carefully crafted digital experiences that showcase innovation and technical excellence.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div ref={containerRef} className="relative lg:flex">
           {/* Text Content */}
           <div className="lg:w-1/2 lg:pr-6">
-            <div className="sticky top-24 glass-effect rounded-3xl p-8">
-              <h3 className="text-4xl font-bold mb-4">{projects[currentProject].title}</h3>
-              <p className="text-lg text-gray-600 mb-6">{projects[currentProject].description}</p>
-              <div className="mb-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="sticky top-24 glass-effect rounded-3xl p-8"
+            >
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-4xl font-bold mb-4"
+              >
+                {projects[currentProject].title}
+              </motion.h3>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-lg text-gray-600 mb-6"
+              >
+                {projects[currentProject].description}
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="mb-6"
+              >
                 <h4 className="font-semibold mb-2">Key Features</h4>
                 <ul className="list-disc ml-6 space-y-2">
                   {projects[currentProject].features.map((feat, idx) => (
-                    <li key={idx}>{feat}</li>
+                    <motion.li 
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + idx * 0.1, duration: 0.5 }}
+                    >
+                      {feat}
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
-              <div className="flex flex-wrap gap-2">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="flex flex-wrap gap-2"
+              >
                 {projects[currentProject].technologies.map((tech, i) => (
-                  <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  <motion.span 
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.7 + i * 0.1, duration: 0.5 }}
+                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
 
           {/* Scrollable Images */}
@@ -204,20 +262,27 @@ const ProjectsSection = () => {
           >
             <div className="py-40 space-y-[20vh]">
               {projects.map((project, index) => (
-                <div
+                <motion.div
                   key={index}
                   ref={(el) => (projectRefs.current[index] = el)}
                   data-index={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
                   className="h-[60vh] flex items-center justify-center snap-start snap-always"
                 >
-                  <div className="relative w-full max-w-xl mx-auto group">
+                  <motion.div 
+                    className="relative w-full max-w-xl mx-auto group"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
                       className={`rounded-xl shadow-lg w-full h-[60vh] object-cover transition-all duration-500 ${currentProject === index ? 'scale-100 opacity-100 transform-gpu' : 'scale-95 opacity-70 transform-gpu'} group-hover:scale-105 group-hover:shadow-2xl`}
                     />
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>

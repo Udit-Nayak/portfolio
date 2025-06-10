@@ -206,46 +206,86 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
 
           {/* RIGHT SIDE */}
           <div className="lg:col-span-2 w-full">
-            <div className="glass-effect rounded-2xl p-0 relative overflow-hidden">
-              <div className="text-right mb-6">
-                <h2 className="text-2xl lg:text-3xl font-bold mb-2">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="glass-effect rounded-2xl p-0 relative overflow-hidden"
+            >
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-right mb-6 p-2"
+              >
+                <h2 className="text-2xl lg:text-3xl font-bold">
                   Passionate about cutting-edge technologies
                 </h2>
-              </div>
+              </motion.div>
               
-              <div className="grid grid-cols-1 gap-3 mb-8">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="grid grid-cols-1 gap-3 mb-4"
+              >
                 <SkillStripe skills={skills1} direction="right" />
                 <SkillStripe skills={skills2} direction="left" />
                 <SkillStripe skills={skills3} direction="right" />
-              </div>
+              </motion.div>
 
-              <div className="glass-effect rounded-xl p-8 bg-gradient-to-br from-purple-600/10 to-blue-600/10 mt-8">
-                <div className="flex items-center justify-between mb-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="glass-effect rounded-xl p-4 bg-gradient-to-br from-purple-600/10 to-blue-600/10 mt-8 mx-6 mb-6"
+              >
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="flex items-center justify-between mb-4"
+                >
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="h-20 bg-black/20 rounded-lg mb-4 flex items-center justify-center">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  className="h-20 bg-black/20 rounded-lg mb-4 flex items-center justify-center"
+                >
                   <div className="w-8 h-8 bg-white/20 rounded"></div>
-                </div>
+                </motion.div>
 
-                <h4 className="text-lg font-bold mb-4 text-center">
+                <motion.h4 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                  className="text-lg font-bold mb-4 text-center"
+                >
                   Websites that stand out and make a difference
-                </h4>
+                </motion.h4>
 
-                <div className="flex space-x-2 justify-center">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                  className="flex space-x-2 justify-center"
+                >
                   <button 
                     onClick={onBookCall}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm font-medium"
+                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
                   >
                     Get started
                   </button>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
