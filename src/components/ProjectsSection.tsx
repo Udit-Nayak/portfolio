@@ -14,88 +14,39 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Next Ventures",
-      description: "A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas.",
+      title: "Chat App",
+      description: "Developed a real-time chat application with instant messaging, user authentication, image sharing.",
       features: [
-        "Leveraged Partial Prerendering and After for faster loading",
-        "Simplified idea submission with a clean, intuitive design",
+        "Implemented Socket.io for bidirectional communication, ensuring seamless real-time updates.",
+        "Secured user authentication with JWT tokens, bcrypt password hashing, and protected routes.",
         "Enhanced browsing with seamless performance optimization"
       ],
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity CMS", "Auth.js"],
-      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
+      technologies: ["Node.js", "React", "Express.js", "MongoDB", "Socket.io", "React","DaisyUI"],
+      image: "/lovable-uploads/project1.png",
+
     },
     {
       title: "E-Commerce Platform",
-      description: "Modern e-commerce solution with advanced features and seamless user experience.",
+      description: "Built a responsive e-commerce platform with dynamic product listings and cart functionality.",
       features: [
-        "Real-time inventory management and tracking",
-        "Advanced search and filtering capabilities",
+        "Integrated Nodemailer for email verification, password reset links, and user onboarding workflows.",
+        "Implemented secure user registration and login with bcrypt password hashing and protected routes",
         "Integrated payment gateway and order processing"
       ],
-      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
+      technologies: ["Next.js", "React", "TailwindCSS", "Stripe", "Wix", "Wix Headless", "Nodemailer"],
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
+
     },
     {
-      title: "AI-Powered Analytics Dashboard",
-      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
+      title: "Advanced MERN Authentication Landing Page",
+      description: "Built a secure and scalable authentication system including JWT-based login, refresh tokens",
       features: [
-        "Machine learning algorithms for predictive analytics",
-        "Interactive data visualization with D3.js",
-        "Real-time data processing and alerts"
+        "Integrated Nodemailer for email verification, password reset links, and user onboarding workflows.",
+        "Implemented secure user registration and login with bcrypt password hashing and protected routes"
       ],
-      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
-      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
-    },
-    {
-      title: "Next Ventures",
-      description: "A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas.",
-      features: [
-        "Leveraged Partial Prerendering and After for faster loading",
-        "Simplified idea submission with a clean, intuitive design",
-        "Enhanced browsing with seamless performance optimization"
-      ],
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Sanity CMS", "Auth.js"],
-      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
-    },
-    {
-      title: "AI-Powered Analytics Dashboard",
-      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
-      features: [
-        "Machine learning algorithms for predictive analytics",
-        "Interactive data visualization with D3.js",
-        "Real-time data processing and alerts"
-      ],
-      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
-      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Modern e-commerce solution with advanced features and seamless user experience.",
-      features: [
-        "Real-time inventory management and tracking",
-        "Advanced search and filtering capabilities",
-        "Integrated payment gateway and order processing"
-      ],
-      technologies: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
-    },
-    {
-      title: "AI-Powered Analytics Dashboard",
-      description: "Comprehensive analytics platform with AI-driven insights and real-time data visualization.",
-      features: [
-        "Machine learning algorithms for predictive analytics",
-        "Interactive data visualization with D3.js",
-        "Real-time data processing and alerts"
-      ],
-      technologies: ["React", "D3.js", "Python", "TensorFlow", "Redis", "PostgreSQL"],
-      image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      links: { live: "#", github: "#" }
+      technologies: ["React", "Node.js", "MongoDB", "Express.js", "NodeMailer",],
+      image: "/lovable-uploads/project3.png",
+
     },
   ];
 

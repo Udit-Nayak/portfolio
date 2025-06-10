@@ -11,16 +11,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   const [isEmailHovered, setIsEmailHovered] = useState(false);
 
   const skills1 = [
-    'INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE', 'SEO OPTIMIZED'
-  ];
+    'INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE'];
   const skills2 = [
-    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Motion', 'Sanity',
-    'Contentful', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB', 'Prisma'
-  ];
+    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'ShadCN', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB'];
   const skills3 = [
-    'Zustand', 'Zod', 'pnpm', 'Bun', 'Git', 'GitHub', 'Vercel',
-    'AWS', 'Docker', 'Expo', 'Clerk', 'Linux'
-  ];
+    'MongoDB', 'PostgreSQL', 'BootStrap', 'Javascript', 'MySQL', 'Socket.io', 'Git', 'GitHub', 'Vercel'];
 
   const SkillStripe = ({ skills, direction = 'right' }: { skills: string[], direction?: 'left' | 'right' }) => (
     <div className="overflow-hidden py-4">
@@ -70,7 +65,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                     >
                       <div className="w-full h-full rounded-full overflow-hidden">
                         <img 
-                          src="/lovable-uploads/30d2a950-ba97-4f7a-814f-dd4155c95a27.png" 
+                          src="/lovable-uploads/IMG_20250610_131910.png" 
                           alt="Profile" 
                           className="w-full h-full object-cover"
                         />
@@ -259,7 +254,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   transition={{ delay: 0.6, duration: 0.5 }}
                   className="h-20 bg-black/20 rounded-lg mb-4 flex items-center justify-center"
                 >
-                  <div className="w-8 h-8 bg-white/20 rounded"></div>
+                  <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center text-gradient text-2xl font-bold">UN</div>
                 </motion.div>
 
                 <motion.h4 
@@ -305,7 +300,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 </motion.div>
                 <div>
                   <motion.p className="text-sm text-muted-foreground" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.4 }}>The Inside Scoop</motion.p>
-                  <motion.h3 className="text-2xl font-bold" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>Currently building a SaaS Application</motion.h3>
+                  <motion.h3 className="text-2xl font-bold" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>Currently building a HealthCare Application</motion.h3>
                 </div>
               </motion.div>
 
@@ -321,19 +316,19 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 }}
               >
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-                  <h4 className="font-semibold mb-2">Payment System</h4>
+                  <h4 className="font-semibold mb-2">Symptom Checker</h4>
                   <p className="text-muted-foreground">Architecture</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-                  <h4 className="font-semibold mb-2">Monitoring & Analytics</h4>
-                  <p className="text-muted-foreground">Infrastructure</p>
+                  <h4 className="font-semibold mb-2">Lab Report Interpretation</h4>
+                  <p className="text-muted-foreground">Using AI</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
-                  <h4 className="font-semibold mb-2">API Gateway & Documentation</h4>
+                  <h4 className="font-semibold mb-2">Appointment Booking</h4>
                   <p className="text-muted-foreground">Integration</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}>
-                  <h4 className="font-semibold mb-2">Design System & UI</h4>
+                  <h4 className="font-semibold mb-2">Test Analysis</h4>
                   <p className="text-muted-foreground">Components</p>
                 </motion.div>
                 
@@ -342,7 +337,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
             {/* Right: Placeholder Image */}
             <div className="flex justify-center items-center w-full h-full group">
               <img 
-                src="https://placehold.co/300x200" 
+                src="/lovable-uploads/image.png" 
                 alt="Placeholder" 
                 className="rounded-xl object-cover max-w-full max-h-48 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/30"
               />
