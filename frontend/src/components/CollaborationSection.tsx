@@ -18,12 +18,12 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
     'MongoDB', 'PostgreSQL', 'BootStrap', 'Javascript', 'MySQL', 'Socket.io', 'Git', 'GitHub', 'Vercel'];
 
   const SkillStripe = ({ skills, direction = 'right' }: { skills: string[], direction?: 'left' | 'right' }) => (
-    <div className="overflow-hidden py-4">
-      <div className={`flex space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
+    <div className="overflow-hidden py-2 sm:py-4">
+      <div className={`flex space-x-4 sm:space-x-8 whitespace-nowrap ${direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'}`}>
         {[...skills, ...skills, ...skills].map((skill, index) => (
           <div 
             key={index}
-            className="px-8 py-3 rounded-2xl text-sm font-medium glass-effect"
+            className="px-4 sm:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium glass-effect"
           >
             {skill}
           </div>
@@ -33,12 +33,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   );
 
   return (
-    <section className="py-20 px-6">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[95%]">
-        <div className="grid lg:grid-cols-5 gap-12 items-start mb-16">
+    <section className="py-12 sm:py-20 px-4 sm:px-6">
+      <div className="mx-auto px-2 sm:px-4 lg:px-8 max-w-[95%]">
+        <div className="grid lg:grid-cols-5 gap-6 sm:gap-12 items-start mb-8 sm:mb-16">
           {/* LEFT SIDE */}
-          <div className="lg:col-span-3 space-y-12 w-full">
-
+          <div className="lg:col-span-3 space-y-6 sm:space-y-12 w-full">
             {/* 🌟 Animated Collaboration Card */}
             <div 
               className="relative group cursor-pointer"
@@ -49,17 +48,17 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="relative overflow-hidden rounded-2xl p-20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
               >
                 <div className="relative z-10">
                   <motion.div
                     initial={{ x: -20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="flex items-center space-x-4 mb-10"
+                    className="flex items-center space-x-3 sm:space-x-4 mb-6 sm:mb-10"
                   >
                     <motion.div 
-                      className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1 shadow-lg shadow-purple-800/30"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1 shadow-lg shadow-purple-800/30"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -73,16 +72,15 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                     </motion.div>
                     <div>
                       <motion.h3 
-                        className="text-2xl font-extrabold mb-1 text-white text-gradient"
+                        className="text-xl sm:text-2xl font-extrabold mb-1 text-white text-gradient"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.5 }}
-
                       >
                         Let's Collaborate
                       </motion.h3>
                       <motion.p 
-                        className="text-muted-foreground text-sm max-w-md"
+                        className="text-muted-foreground text-xs sm:text-sm max-w-md"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.5 }}
@@ -96,10 +94,10 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="space-y-4"
+                    className="space-y-3 sm:space-y-4"
                   >
                     <motion.p
-                      className="text-muted-foreground text-base leading-relaxed max-w-2xl"
+                      className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.6, duration: 0.5 }}
@@ -107,7 +105,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                       Great things are built together.
                     </motion.p>
                     <motion.p
-                      className="text-muted-foreground text-base leading-relaxed max-w-2xl"
+                      className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.7, duration: 0.5 }}
@@ -121,7 +119,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               </motion.div>
 
               {isCollabHovered && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-2xl transition-all duration-300 pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-xl sm:rounded-2xl transition-all duration-300 pointer-events-none">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -130,7 +128,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   >
                     <Button 
                       onClick={onBookCall}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect animate-scale-in"
+                      className="text-sm sm:text-base bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect animate-scale-in"
                     >
                       Book a Call
                     </Button>
@@ -145,12 +143,12 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               whileHover={{ scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' }}
-              className="relative glass-effect rounded-2xl p-20 overflow-hidden group cursor-pointer transition-all duration-300"
+              className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-20 overflow-hidden group cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsEmailHovered(true)}
               onMouseLeave={() => setIsEmailHovered(false)}
             >
               <motion.div
-                className="flex items-center space-x-6"
+                className="flex items-center space-x-4 sm:space-x-6"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -160,7 +158,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 }}
               >
                 <motion.div
-                  className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-lg sm:text-2xl shadow-lg"
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.4 }}
@@ -170,7 +168,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 </motion.div>
                 <div>
                   <motion.h4
-                    className="text-lg font-bold mb-1 text-white"
+                    className="text-base sm:text-lg font-bold mb-1 text-white"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
@@ -178,7 +176,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                     Email Me
                   </motion.h4>
                   <motion.p
-                    className="text-muted-foreground text-sm"
+                    className="text-muted-foreground text-xs sm:text-sm"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2, duration: 0.4 }}
@@ -187,7 +185,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   </motion.p>
                   <motion.a
                     href="mailto:uditnayak1611@gmail.com"
-                    className="block mt-3 text-lg font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent select-all"
+                    className="block mt-2 sm:mt-3 text-sm sm:text-lg font-semibold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent select-all"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
@@ -196,7 +194,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   </motion.a>
                 </div>
               </motion.div>
-              <div className={`absolute inset-0 pointer-events-none transition-all duration-300 rounded-2xl ${isEmailHovered ? 'glow-effect' : ''}`}></div>
+              <div className={`absolute inset-0 pointer-events-none transition-all duration-300 rounded-xl sm:rounded-2xl ${isEmailHovered ? 'glow-effect' : ''}`}></div>
             </motion.div>
           </div>
 
@@ -206,15 +204,15 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="glass-effect rounded-2xl p-0 relative overflow-hidden"
+              className="glass-effect rounded-xl sm:rounded-2xl p-0 relative overflow-hidden"
             >
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-right mb-6 p-2"
+                className="text-right mb-4 sm:mb-6 p-2"
               >
-                <h2 className="p-2 text-2xl lg:text-3xl font-bold">
+                <h2 className="p-2 text-xl sm:text-2xl lg:text-3xl font-bold">
                   Passionate about <span className="text-gradient">cutting-edge technologies</span>
                 </h2>
               </motion.div>
@@ -223,7 +221,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="grid grid-cols-1 gap-3 mb-4"
+                className="grid grid-cols-1 gap-2 sm:gap-3 mb-4"
               >
                 <SkillStripe skills={skills1} direction="right" />
                 <SkillStripe skills={skills2} direction="left" />
@@ -234,51 +232,19 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="glass-effect rounded-xl p-4 bg-gradient-to-br from-purple-600/10 to-blue-600/10 mt-8 mx-6 mb-6"
+                className="glass-effect rounded-lg sm:rounded-xl p-3 sm:p-4 bg-gradient-to-br from-purple-600/10 to-blue-600/10 mt-6 sm:mt-8 mx-4 sm:mx-6 mb-4 sm:mb-6"
               >
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
-                  className="flex items-center justify-between mb-4"
+                  className="flex items-center justify-between mb-3 sm:mb-4"
                 >
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="flex space-x-1.5 sm:space-x-2">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
                   </div>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                  className="h-20 bg-black/20 rounded-lg mb-4 flex items-center justify-center"
-                >
-                  <div className="w-8 h-8 bg-white/20 rounded flex items-center justify-center text-gradient text-2xl font-bold">UN</div>
-                </motion.div>
-
-                <motion.h4 
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                  className="text-lg font-bold mb-4 text-center"
-                >
-                  Websites that stand out and make a difference
-                </motion.h4>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  className="flex space-x-2 justify-center"
-                >
-                  <button 
-                    onClick={onBookCall}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
-                  >
-                    Get started
-                  </button>
                 </motion.div>
               </motion.div>
             </motion.div>
