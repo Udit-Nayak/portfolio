@@ -8,8 +8,7 @@ const app = express();
 // CORS Configuration
 const corsOptions = {
   origin: [
-    'http://localhost:8080',
-    'https://vercel.com/udits-projects-12ce8745/frontend/GmGyY7qGnR3qYXou4phR4gHM7KZY' // Replace with your frontend's Vercel URL
+    'http://localhost:8080'// Replace with your frontend's Vercel URL
   ],
   methods: ['GET', 'POST'],
   credentials: true,
@@ -71,7 +70,7 @@ app.get('/api/bookings', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT =5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
