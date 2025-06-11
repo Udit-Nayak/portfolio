@@ -60,15 +60,12 @@ app.post('/api/bookings', async (req, res) => {
 });
 
 // Get all bookings (for admin purposes)
-app.get('/api/bookings', async (req, res) => {
-  try {
-    const bookings = await Booking.find().sort({ createdAt: -1 });
-    res.json(bookings);
-  } catch (error) {
-    console.error('Error fetching bookings:', error);
-    res.status(500).json({ message: 'Error fetching bookings', error: error.message });
-  }
-});
+app.get('/',(req,res)=>{
+  res.send({
+    activeStatus:true,
+    error:false,
+  })
+})
 
 const PORT =5000;
 app.listen(PORT, () => {
