@@ -6,17 +6,15 @@ require('dotenv').config();
 const app = express();
 
 // CORS Configuration
-const corsOptions = {
-  origin: [
-    'http://localhost:8080',
-    "https://udit-portfolio-1048.netlify.app"// Replace with your frontend's Vercel URL
-  ],
-  methods: ['GET', 'POST'],
-  credentials: true,
-};
+
 
 // Middleware
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: [
+    'http://localhost:8080',
+    'https://udit-portfolio-1048.netlify.app'
+  ],
+}));
 app.use(express.json());
 
 // MongoDB Connection
