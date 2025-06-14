@@ -30,9 +30,9 @@ const HeroSection = ({ onBookCall }: HeroSectionProps) => {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-16 sm:pt-20 relative overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* <div className="absolute inset-0 w-full h-full z-0">
         <Spline scene="https://prod.spline.design/0SNGr6XPmGqGgUmK/scene.splinecode" />
-      </div>
+      </div> */}
       <div className="relative z-10 w-full">
         {/* Remove the background overlay below */}
         {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-background to-blue-900/20"></div> */}

@@ -48,7 +48,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="relative overflow-hidden rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-12 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
               >
                 <div className="relative z-10">
                   <motion.div
@@ -143,7 +143,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               whileHover={{ scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' }}
-              className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-20 overflow-hidden group cursor-pointer transition-all duration-300"
+              className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-10 overflow-hidden group cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsEmailHovered(true)}
               onMouseLeave={() => setIsEmailHovered(false)}
             >
@@ -272,8 +272,7 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               </motion.div>
 
               <motion.div
-                className="grid gap-4 text-sm w-full"
-                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(0, 1fr))' }}
+                className="flex flex-col sm:grid sm:grid-cols-2 gap-4 text-sm w-full"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -298,7 +297,6 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                   <h4 className="font-semibold mb-2">Test Analysis</h4>
                   <p className="text-muted-foreground">Components</p>
                 </motion.div>
-                
               </motion.div>
             </div>
             {/* Right: Placeholder Image */}
