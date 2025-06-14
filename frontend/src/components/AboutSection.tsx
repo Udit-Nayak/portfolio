@@ -14,6 +14,17 @@ const AboutSection = () => {
     });
   };
 
+  // Helper function to conditionally apply motion props based on screen size
+  const getMotionProps = (defaultProps: any) => {
+    return {
+      ...defaultProps,
+      initial: window.innerWidth >= 640 ? defaultProps.initial : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileInView: window.innerWidth >= 640 ? defaultProps.whileInView : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileHover: window.innerWidth >= 640 ? defaultProps.whileHover : undefined,
+      transition: window.innerWidth >= 640 ? defaultProps.transition : { duration: 0 }
+    };
+  };
+
   return (
     <section 
       id="about" 
@@ -45,58 +56,92 @@ const AboutSection = () => {
           className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center"
         >
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            {...getMotionProps({
+              initial: { opacity: 0, x: -40 },
+              whileInView: { opacity: 1, x: 0 },
+              transition: { duration: 0.7, ease: 'easeOut' },
+              viewport: { once: true }
+            })}
           >
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              viewport={{ once: true }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { delay: 0.15, duration: 0.5 },
+                viewport: { once: true }
+              })}
               className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider mb-2"
             >
               KNOW ABOUT ME
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.5 }}
-              viewport={{ once: true }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { delay: 0.25, duration: 0.5 },
+                viewport: { once: true }
+              })}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-8"
             >
               Full-Stack Developer and<br />
               a little bit of <span className="text-gradient italic">everything</span>
             </motion.h2>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.5 }}
-              viewport={{ once: true }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { delay: 0.35, duration: 0.5 },
+                viewport: { once: true }
+              })}
               className="space-y-4 sm:space-y-6 text-muted-foreground"
             >
-              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }} viewport={{ once: true }} className="text-base sm:text-lg">
+              <motion.p 
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.4, duration: 0.5 },
+                  viewport: { once: true }
+                })}
+                className="text-base sm:text-lg"
+              >
                 I'm Udit Nayak, a proactive full-stack developer passionate
                 about creating dynamic web experiences. From frontend to
                 backend, I thrive on solving complex problems with clean,
                 efficient code. My expertise spans React, Next.js, and Node.js,
                 and I'm always eager to learn more.
               </motion.p>
-              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }} viewport={{ once: true }} className="text-base sm:text-lg">
+              <motion.p 
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.5, duration: 0.5 },
+                  viewport: { once: true }
+                })}
+                className="text-base sm:text-lg"
+              >
                 When I'm not immersed in work, I'm exploring new ideas and
                 staying curious. Life's about balance, and I love embracing
                 every part of it.
               </motion.p>
-              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} viewport={{ once: true }} className="text-base sm:text-lg">
+              <motion.p 
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.6, duration: 0.5 },
+                  viewport: { once: true }
+                })}
+                className="text-base sm:text-lg"
+              >
                 I believe in waking up each day eager to make a difference!
               </motion.p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              viewport={{ once: true }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { delay: 0.7, duration: 0.5 },
+                viewport: { once: true }
+              })}
               className="flex gap-4 sm:gap-6 mt-6 sm:mt-8"
             >
               <a href="https://www.linkedin.com/in/uditnayak/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300">
@@ -108,10 +153,12 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            viewport={{ once: true }}
+            {...getMotionProps({
+              initial: { opacity: 0, x: 40 },
+              whileInView: { opacity: 1, x: 0 },
+              transition: { duration: 0.7, ease: 'easeOut' },
+              viewport: { once: true }
+            })}
             className="relative group mt-8 lg:mt-0"
             onMouseEnter={() => setIsImageHovered(true)}
             onMouseLeave={() => setIsImageHovered(false)}
@@ -128,9 +175,11 @@ const AboutSection = () => {
               />
               {isImageHovered && (
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  {...getMotionProps({
+                    initial: { opacity: 0 },
+                    animate: { opacity: 1 },
+                    transition: { duration: 0.3 }
+                  })}
                   className="absolute inset-0 bg-gradient-to-br from-green-600/30 to-blue-600/30 backdrop-blur-sm flex items-center justify-center"
                 />
               )}

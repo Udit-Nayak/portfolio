@@ -158,12 +158,12 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${  
-        isScrolled ? 'glass-effect py-4 mx-4 mt-4 rounded-full' : 'py-6'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${  
+      isScrolled ? 'glass-effect py-4 mx-4 mt-4 rounded-full' : 'py-6'
+    }`}>
+      <div className={`container mx-auto px-6 flex items-center justify-between ${
+        isScrolled ? 'max-w-7xl' : 'max-w-full'
       }`}>
-        <div className={`container mx-auto px-6 flex items-center justify-between ${
-          isScrolled ? 'max-w-7xl' : 'max-w-full'
-        }`}>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -171,66 +171,66 @@ const Navigation = ({ onBookCall }: NavigationProps) => {
             >
               <Menu size={24} />
             </button>
-            <div className="text-2xl font-bold text-gradient cursor-pointer" onClick={() => handleNav()}>UN</div>
+        <div className="text-2xl font-bold text-gradient cursor-pointer" onClick={() => handleNav()}>UN</div>
           </div>
-          
-          <div className="hidden md:flex items-center space-x-8 ml-20">
-            <button 
-              onClick={() => handleNav()}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => handleNav('work')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Work
-            </button>
-            <button 
-              onClick={() => handleNav('about')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </button>
-            <Popover open={isMoreOpen} onOpenChange={setIsMoreOpen}>
-              <PopoverTrigger asChild>
-                <button
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  onMouseEnter={() => setIsMoreOpen(true)}
-                  onMouseLeave={() => setIsMoreOpen(false)}
-                >
-                  More
-                </button>
-              </PopoverTrigger>
-              <PopoverContent
-                align="end"
-                className="mt-0"
+        
+        <div className="hidden md:flex items-center space-x-8 ml-20">
+          <button 
+            onClick={() => handleNav()}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Home
+          </button>
+          <button 
+            onClick={() => handleNav('work')}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Work
+          </button>
+          <button 
+            onClick={() => handleNav('about')}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            About
+          </button>
+          <Popover open={isMoreOpen} onOpenChange={setIsMoreOpen}>
+            <PopoverTrigger asChild>
+              <button
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 onMouseEnter={() => setIsMoreOpen(true)}
                 onMouseLeave={() => setIsMoreOpen(false)}
               >
-                <MoreMenuSection />
-              </PopoverContent>
-            </Popover>
-          </div>
-
-          <Button
-            onClick={() => {
-              if (location.pathname === '/links' || location.pathname === '/uses') {
-                onBookCall();
-              } else if (location.pathname !== '/') {
-                navigate('/');
-                setTimeout(() => onBookCall(), 300);
-              } else {
-                onBookCall();
-              }
-            }}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect"
-          >
-            Book a Call
-          </Button>
+                More
+              </button>
+            </PopoverTrigger>
+            <PopoverContent
+              align="end"
+              className="mt-0"
+              onMouseEnter={() => setIsMoreOpen(true)}
+              onMouseLeave={() => setIsMoreOpen(false)}
+            >
+              <MoreMenuSection />
+            </PopoverContent>
+          </Popover>
         </div>
-      </nav>
+
+        <Button
+          onClick={() => {
+            if (location.pathname === '/links' || location.pathname === '/uses') {
+              onBookCall();
+            } else if (location.pathname !== '/') {
+              navigate('/');
+              setTimeout(() => onBookCall(), 300);
+            } else {
+              onBookCall();
+            }
+          }}
+          className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 glow-effect"
+        >
+          Book a Call
+        </Button>
+      </div>
+    </nav>
 
       <AnimatePresence>
         {isMobileMenuOpen && <MobileMenu />}

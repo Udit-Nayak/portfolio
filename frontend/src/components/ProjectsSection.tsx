@@ -113,6 +113,17 @@ const ProjectsSection = () => {
     };
   }, []);
 
+  // Helper function to conditionally apply motion props based on screen size
+  const getMotionProps = (defaultProps: any) => {
+    return {
+      ...defaultProps,
+      initial: window.innerWidth >= 640 ? defaultProps.initial : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileInView: window.innerWidth >= 640 ? defaultProps.whileInView : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileHover: window.innerWidth >= 640 ? defaultProps.whileHover : undefined,
+      transition: window.innerWidth >= 640 ? defaultProps.transition : { duration: 0 }
+    };
+  };
+
   return (
     <section ref={sectionRef} id="work" className="min-h-screen relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -144,31 +155,39 @@ const ProjectsSection = () => {
           {/* Text Content */}
           <div className="lg:w-1/2 lg:pr-6">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              {...getMotionProps({
+                initial: { opacity: 0, x: -30 },
+                whileInView: { opacity: 1, x: 0 },
+                transition: { duration: 0.6, ease: 'easeOut' }
+              })}
               className="sticky top-24 glass-effect rounded-3xl p-8"
             >
               <motion.h3 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.2, duration: 0.5 }
+                })}
                 className="text-4xl font-bold mb-4 text-gradient"
               >
                 {projects[currentProject].title}
               </motion.h3>
               <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.3, duration: 0.5 }
+                })}
                 className="text-lg text-gray-600 mb-6"
               >
                 {projects[currentProject].description}
               </motion.p>
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.4, duration: 0.5 }
+                })}
                 className="mb-6"
               >
                 <h4 className="font-semibold mb-2">Key Features</h4>
@@ -176,9 +195,11 @@ const ProjectsSection = () => {
                   {projects[currentProject].features.map((feat, idx) => (
                     <motion.li 
                       key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + idx * 0.1, duration: 0.5 }}
+                      {...getMotionProps({
+                        initial: { opacity: 0, x: -20 },
+                        whileInView: { opacity: 1, x: 0 },
+                        transition: { delay: 0.5 + idx * 0.1, duration: 0.5 }
+                      })}
                     >
                       {feat}
                     </motion.li>
@@ -186,17 +207,21 @@ const ProjectsSection = () => {
                 </ul>
               </motion.div>
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { delay: 0.6, duration: 0.5 }
+                })}
                 className="flex flex-wrap gap-2"
               >
                 {projects[currentProject].technologies.map((tech, i) => (
                   <motion.span 
                     key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.7 + i * 0.1, duration: 0.5 }}
+                    {...getMotionProps({
+                      initial: { opacity: 0, scale: 0.8 },
+                      whileInView: { opacity: 1, scale: 1 },
+                      transition: { delay: 0.7 + i * 0.1, duration: 0.5 }
+                    })}
                     className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
                   >
                     {tech}
@@ -217,15 +242,22 @@ const ProjectsSection = () => {
                   key={index}
                   ref={(el) => (projectRefs.current[index] = el)}
                   data-index={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  {...getMotionProps({
+                    initial: { opacity: 0, y: 50 },
+                    whileInView: { opacity: 1, y: 0 },
+                    transition: { duration: 0.6, ease: 'easeOut' }
+                  })}
                   className="h-[60vh] flex items-center justify-center snap-start snap-always"
                 >
                   <motion.div 
                     className="relative w-full max-w-xl mx-auto group"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={getMotionProps({
+                      whileHover: { scale: 1.02 },
+                      transition: { duration: 0.3 }
+                    })}
+                    transition={getMotionProps({
+                      transition: { duration: 0.3 }
+                    })}
                   >
                     <img
                       src={project.image}

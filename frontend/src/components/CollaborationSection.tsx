@@ -32,6 +32,17 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
     </div>
   );
 
+  // Helper function to conditionally apply motion props based on screen size
+  const getMotionProps = (defaultProps: any) => {
+    return {
+      ...defaultProps,
+      initial: window.innerWidth >= 640 ? defaultProps.initial : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileInView: window.innerWidth >= 640 ? defaultProps.whileInView : { opacity: 1, y: 0, x: 0, scale: 1 },
+      whileHover: window.innerWidth >= 640 ? defaultProps.whileHover : undefined,
+      transition: window.innerWidth >= 640 ? defaultProps.transition : { duration: 0 }
+    };
+  };
+
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="mx-auto px-2 sm:px-4 lg:px-8 max-w-[95%]">
@@ -45,9 +56,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
               onMouseLeave={() => setIsCollabHovered(false)}
             >
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                {...getMotionProps({
+                  initial: { opacity: 0, y: 30 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { duration: 0.6, ease: 'easeOut' }
+                })}
                 className="relative overflow-hidden rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-12 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl backdrop-blur-xl border border-white/10"
               >
                 <div className="relative z-10">
@@ -139,10 +152,12 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
 
             {/* 📧 Email Card */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              whileHover={{ scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 },
+                whileHover: { scale: 1.03, boxShadow: '0 0 32px 0 rgba(124,58,237,0.25)' },
+                transition: { duration: 0.6, ease: 'easeOut' }
+              })}
               className="relative glass-effect rounded-xl sm:rounded-2xl p-6 sm:p-12 md:p-10 overflow-hidden group cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsEmailHovered(true)}
               onMouseLeave={() => setIsEmailHovered(false)}
@@ -201,9 +216,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
           {/* RIGHT SIDE */}
           <div className="lg:col-span-2 w-full">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              {...getMotionProps({
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { duration: 0.6, ease: 'easeOut' }
+              })}
               className="glass-effect rounded-xl sm:rounded-2xl p-0 relative overflow-hidden"
             >
               <motion.div 
@@ -253,9 +270,11 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
 
         {/* SaaS Info */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          {...getMotionProps({
+            initial: { opacity: 0, y: 40 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.7, ease: 'easeOut' }
+          })}
           className="glass-effect rounded-2xl p-12 w-full"
         >
           <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center">
