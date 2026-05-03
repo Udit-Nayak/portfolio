@@ -61,11 +61,11 @@ const handleSubmit = async (e: React.FormEvent) => {
     toast.success('Message sent successfully!');
     setFormData({ name: '', email: '', company: '', message: '' });
     onClose();
-  } catch (error: any) {
+  } catch (error: unknown) {
   console.error('EMAILJS ERROR:', error);
 
-  if (error?.text) {
-    toast.error(error.text);
+  if (error && typeof error === 'object' && 'text' in error) {
+    toast.error(String((error as any).text));
   } else {
     toast.error('Failed to send message');
   }

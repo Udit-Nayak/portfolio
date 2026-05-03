@@ -15,14 +15,14 @@ const AboutSection = () => {
   };
 
   // Helper function to conditionally apply motion props based on screen size
-  const getMotionProps = (defaultProps: any) => {
+  const getMotionProps = (defaultProps: Record<string, unknown>) => {
     return {
       ...defaultProps,
       initial: window.innerWidth >= 640 ? defaultProps.initial : { opacity: 1, y: 0, x: 0, scale: 1 },
       whileInView: window.innerWidth >= 640 ? defaultProps.whileInView : { opacity: 1, y: 0, x: 0, scale: 1 },
       whileHover: window.innerWidth >= 640 ? defaultProps.whileHover : undefined,
       transition: window.innerWidth >= 640 ? defaultProps.transition : { duration: 0 }
-    };
+    } as any;
   };
 
   return (
