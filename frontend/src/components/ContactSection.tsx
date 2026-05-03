@@ -59,7 +59,7 @@ const ContactSection = ({ onBookCall }: ContactSectionProps) => {
         </div>
         {/* Availability statement */}
         <p className={`text-base sm:text-lg md:text-xl text-slate-300 mb-2 font-medium ${animate ? 'animate-pop-in-center' : ''}`}>
-          I'm available for full-time roles & freelance projects.
+          I'm available for full-time roles.
         </p>
         {/* Skills description */}
         <p className={`text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0 ${animate ? 'animate-pop-in-center' : ''}`}>

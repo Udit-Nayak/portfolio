@@ -37,21 +37,20 @@ const HeroSection = ({ onBookCall }: HeroSectionProps) => {
         {/* Remove the background overlay below */}
         {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-background to-blue-900/20"></div> */}
         
-        <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="container mx-auto max-w-8xl relative z-10">
           <div className="text-center space-y-6 sm:space-y-8">
             <div className="space-y-3 sm:space-y-4">
               <p className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider">
                 KNOW ABOUT ME
               </p>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-                <span className="block">Full-Stack Developer and</span>
-                <span className="text-gradient">Creative Designer</span>
+                <span className="block">Building Things That Ships</span>
+                <span className="text-gradient">Backend · Automation · Real Users</span>
               </h1>
             </div>
             
-            <p className="mb-8 sm:mb-12 text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              I create digital experiences that combine cutting-edge technology with thoughtful design. 
-              From concept to deployment, I build applications that not only function flawlessly but also inspire and engage users.
+            <p className="mb-8 sm:mb-12 text-base sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+              From agentic automation pipelines to on-device ML systems — I build backend-heavy software that goes live, finds real users, and stays running. Building ArowClick AI.
             </p>
             
             <div className="mt-12 sm:mt-16 mb-6 sm:mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">

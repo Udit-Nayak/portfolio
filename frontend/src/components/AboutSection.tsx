@@ -83,8 +83,9 @@ const AboutSection = () => {
               })}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-8"
             >
-              Full-Stack Developer and<br />
-              a little bit of <span className="text-gradient italic">everything</span>
+              Engineer. Founder.<br />
+              and a builder of
+things that <span className="text-gradient italic">ship.</span>
             </motion.h2>
             <motion.div
               {...getMotionProps({
@@ -104,11 +105,9 @@ const AboutSection = () => {
                 })}
                 className="text-base sm:text-lg"
               >
-                I'm Udit Nayak, a proactive full-stack developer passionate
-                about creating dynamic web experiences. From frontend to
-                backend, I thrive on solving complex problems with clean,
-                efficient code. My expertise spans React, Next.js, and Node.js,
-                and I'm always eager to learn more.
+                I'm Udit Nayak — I build backend-heavy, production-grade systems and ship them to real users. Co-founded ArowClick AI, a B2B automation SaaS with paying clients, built entirely from scratch. Also shipped agentic LLM workflows and backend microservices at a fintech startup.
+
+
               </motion.p>
               <motion.p 
                 {...getMotionProps({
@@ -119,9 +118,9 @@ const AboutSection = () => {
                 })}
                 className="text-base sm:text-lg"
               >
-                When I'm not immersed in work, I'm exploring new ideas and
-                staying curious. Life's about balance, and I love embracing
-                every part of it.
+                 I don't just write code — I own products. From architecture to client relationships to production deployments.
+
+
               </motion.p>
               <motion.p 
                 {...getMotionProps({

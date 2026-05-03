@@ -10,12 +10,15 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
   const [isCollabHovered, setIsCollabHovered] = useState(false);
   const [isEmailHovered, setIsEmailHovered] = useState(false);
 
-  const skills1 = [
-    'INTERACTIVE', 'SECURE', 'RELIABLE', 'ENGAGING', 'ACCESSIBLE', 'RESPONSIVE', 'DYNAMIC', 'SCALABLE'];
-  const skills2 = [
-    'ReactJS', 'Next.js', 'TypeScript', 'Tailwind CSS', 'ShadCN', 'Node.JS', 'Express.JS', 'PostgreSQL', 'MongoDB'];
-  const skills3 = [
-    'MongoDB', 'PostgreSQL', 'BootStrap', 'Javascript', 'MySQL', 'Socket.io', 'Git', 'GitHub', 'Vercel'];
+ const skills1 = [
+  'PRODUCTION-READY', 'SCALABLE', 'RELIABLE', 'SECURE', 'AUTOMATED', 'DISTRIBUTED', 'REAL-TIME', 'RESILIENT'
+];
+const skills2 = [
+  'Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'N8N', 'TypeScript', 'Docker'
+];
+const skills3 = [
+  'MongoDB', 'Socket.io', 'Firebase', 'Next.js', 'Git', 'Vercel', 'Linux'
+];
 
   const SkillStripe = ({ skills, direction = 'right' }: { skills: string[], direction?: 'left' | 'right' }) => (
     <div className="overflow-hidden py-2 sm:py-4">
@@ -123,9 +126,8 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.7, duration: 0.5 }}
                     >
-                      Whether it's solving complex problems,
-                      crafting full-stack apps, or thriving in national tech contests —
-                      I love working with passionate people on meaningful products.
+                      Whether it's shipping production backend systems, building agentic automation, or taking a product from zero to real users — I work best with people who care about what they're building.
+
                     </motion.p>
                   </motion.div>
                 </div>
@@ -281,13 +283,15 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
             {/* Left: SaaS Info */}
             <div>
               <motion.div className="flex items-center space-x-4 mb-6" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                <motion.div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center" whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
-                  <span className="text-2xl">📱</span>
-                </motion.div>
-                <div>
-                  <motion.p className="text-sm text-muted-foreground" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.4 }}>The Inside Scoop</motion.p>
-                  <motion.h3 className="text-2xl font-bold" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>Currently building a HealthCare Application</motion.h3>
-                </div>
+                <a href="https://www.arowclick.com/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity duration-200">
+                  <motion.div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center" whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
+                    <span className="text-2xl">🤖</span>
+                  </motion.div>
+                  <div>
+                    <motion.p className="text-sm text-muted-foreground" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.4 }}>Join the Waitlist ↗</motion.p>
+                    <motion.h3 className="text-2xl font-bold" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>Currently building ArowClick AI</motion.h3>
+                  </div>
+                </a>
               </motion.div>
 
               <motion.div
@@ -301,30 +305,33 @@ const CollaborationSection = ({ onBookCall }: CollaborationSectionProps) => {
                 }}
               >
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-                  <h4 className="font-semibold mb-2">Symptom Checker</h4>
-                  <p className="text-muted-foreground">Architecture</p>
+                  <h4 className="font-semibold mb-2">Real Browser Execution</h4>
+                  <p className="text-muted-foreground">Playwright + Desktop Agent</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}>
-                  <h4 className="font-semibold mb-2">Lab Report Interpretation</h4>
-                  <p className="text-muted-foreground">Using AI</p>
+                  <h4 className="font-semibold mb-2">Claude-Powered Planning</h4>
+                  <p className="text-muted-foreground">LLM step generation</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
-                  <h4 className="font-semibold mb-2">Appointment Booking</h4>
-                  <p className="text-muted-foreground">Integration</p>
+                  <h4 className="font-semibold mb-2">Plain English Automation</h4>
+                  <p className="text-muted-foreground">No integrations needed</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}>
-                  <h4 className="font-semibold mb-2">Test Analysis</h4>
-                  <p className="text-muted-foreground">Components</p>
+                  <h4 className="font-semibold mb-2">20+ Pre-Order Clients</h4>
+                  <p className="text-muted-foreground">Word of mouth only</p>
                 </motion.div>
               </motion.div>
             </div>
-            {/* Right: Placeholder Image */}
+
+            {/* Right: Image */}
             <div className="flex justify-center items-center w-full h-full group">
-              <img 
-                src="/lovable-uploads/image.png" 
-                alt="Placeholder" 
-                className="rounded-xl object-cover max-w-full max-h-48 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/30"
-              />
+              <a href="https://www.arowclick.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/lovable-uploads/image.png"
+                  alt="ArowClick AI"
+                  className="rounded-xl object-cover max-w-full max-h-48 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-purple-500/30"
+                />
+              </a>
             </div>
           </div>
         </motion.div>

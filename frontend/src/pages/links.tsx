@@ -11,10 +11,8 @@ const profile = {
   avatar: '/lovable-uploads/IMG_20250610_131910.png',
   badges: [
     { label: 'Developer', color: 'bg-blue-700' },
-    { label: 'Freelancer', color: 'bg-green-700' },
     { label: 'Problem Solver', color: 'bg-purple-700' },
   ],
-  website: '',
   email: 'uditnayak1611@gmail.com',
 };
 
@@ -84,9 +82,7 @@ const Links = () => {
           className="flex gap-2 mb-6"
           variants={itemVariants}
         >
-          <a href={profile.website} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-6 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-gray-200 transition">
-            Website <span aria-hidden>↗</span>
-          </a>
+          
           <a href={`mailto:${profile.email}`} className="bg-gray-700 text-white px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-600 transition">
             {profile.email} <span aria-hidden>↗</span>
           </a>

@@ -4,6 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { X } from 'lucide-react';
+import emailjs from 'emailjs-com';
+
 
 interface BookCallModalProps {
   isOpen: boolean;
@@ -31,35 +33,47 @@ const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
     };
   }, [isOpen]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
 
-    try {
-      const response = await fetch('http://localhost:5000/api/bookings', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
 
-      if (!response.ok) {
-        throw new Error('Failed to submit booking');
-      }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-      const data = await response.json();
-      toast.success('Booking submitted successfully!');
-      setFormData({ name: '', email: '', company: '', message: '' });
-      onClose();
-    } catch (error) {
-      toast.error('Failed to submit booking. Please try again.');
-      console.error('Error submitting booking:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  try {
+    await emailjs.send(
+      SERVICE_ID,
+      TEMPLATE_ID,
+      {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message || 'N/A',
+        reply_to: formData.email, // 👈 ADD THIS
 
+      },
+      PUBLIC_KEY
+    );
+
+    toast.success('Message sent successfully!');
+    setFormData({ name: '', email: '', company: '', message: '' });
+    onClose();
+  } catch (error: any) {
+  console.error('EMAILJS ERROR:', error);
+
+  if (error?.text) {
+    toast.error(error.text);
+  } else {
+    toast.error('Failed to send message');
+  }
+
+  }finally {
+    setIsSubmitting(false);
+  }
+};
   if (!isOpen) return null;
 
   return (
